@@ -107,7 +107,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="472" y="132"/>
+            <point key="canvasLocation" x="238" y="-985"/>
         </scene>
         <!--View Controller Read Generated Story-->
         <scene sceneID="T83-P4-JvH">
@@ -152,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sqm-ti-jn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="268" y="1025.9370314842579"/>
+            <point key="canvasLocation" x="1214" y="-985"/>
         </scene>
         <!--Item-->
         <scene sceneID="g92-fJ-e83">
@@ -226,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XnS-1U-ajh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1196" y="131.78410794602701"/>
+            <point key="canvasLocation" x="734" y="267"/>
         </scene>
         <!--Item-->
         <scene sceneID="l9s-64-WMx">
@@ -274,7 +274,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ltm-qW-Ow7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1981.5999999999999" y="131.78410794602701"/>
+            <point key="canvasLocation" x="238" y="1538"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="iet-9N-Fzx">
@@ -315,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrO-RQ-Qvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="981" y="1006"/>
+            <point key="canvasLocation" x="1862" y="267"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bLZ-uZ-xJM">
