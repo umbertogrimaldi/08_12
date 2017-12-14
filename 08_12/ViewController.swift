@@ -13,6 +13,18 @@ class ViewController: UIViewController {
     var books: [Book] = []
     let storyGenerated = UserDefaults.standard
     
+    let bigNumberSize: CGSize = CGSize(width: 112, height: 88)
+    let bigNumberPosition: CGPoint = CGPoint(x: 131, y: 20)
+    let bigNumberFont = UIFont(name: "HelveticaNeue-Medium", size: 100)
+    let smallNumberSize: CGSize = CGSize(width: 81, height: 58)
+    let smallNumberPositionY: CGFloat = 35
+    let smallNumberFont = UIFont(name: "HelveticaNeue-UltraLight", size: 72)
+    var bigNumberIndex = 0
+    
+    @IBOutlet var numbersSwipeCollection: [UILabel]!
+    @IBOutlet var swipeRight: UISwipeGestureRecognizer!
+    @IBOutlet var swipeLeft: UISwipeGestureRecognizer!
+    
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return storyGenerated.object(forKey: key) != nil
     }
@@ -92,6 +104,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        swipeLeft.direction = .left
+        swipeRight.direction = .right
+        self.setupButtonSizes()
+        self.setupButtonFonts()
         //favouritesBooks.removeObject(forKey: "myArray")
         // Do any additional setup after loading the view, typically from a nib.
        
@@ -104,6 +120,81 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func swipeTheNumber(_ sender: UISwipeGestureRecognizer) {
+        switch sender.direction {
+        case  UISwipeGestureRecognizerDirection.left:
+            if bigNumberIndex != numbersSwipeCollection.count - 1 {
+                bigNumberIndex += 1
+                self.setupButtonSizes()
+                self.setupButtonFonts()
+                for i in 0 ... self.numbersSwipeCollection.count - 1 {
+                    if i == self.bigNumberIndex {
+                        self.numbersSwipeCollection[i].frame.origin.y = self.bigNumberPosition.y
+                        UIView.animate(withDuration: 0.3, animations: {
+                            self.numbersSwipeCollection[i].frame.origin.x = self.bigNumberPosition.x
+                        })
+                    } else {
+                        self.numbersSwipeCollection[i].frame.origin.y = self.smallNumberPositionY
+                        UIView.animate(withDuration: 0.3, animations: {
+                            self.numbersSwipeCollection[i].frame.origin.x -= self.smallNumberSize.width
+                        })
+                    }
+                }
+            }
+            
+            break
+        case  UISwipeGestureRecognizerDirection.right:
+            if bigNumberIndex != 0 {
+                bigNumberIndex -= 1
+                self.setupButtonSizes()
+                self.setupButtonFonts()
+                for i in 0 ... self.numbersSwipeCollection.count - 1 {
+                    if i == self.bigNumberIndex {
+                        self.numbersSwipeCollection[i].frame.origin.y = self.bigNumberPosition.y
+                        UIView.animate(withDuration: 0.3, animations: {
+                            self.numbersSwipeCollection[i].frame.origin.x = self.bigNumberPosition.x
+                        })
+                    } else {
+                        self.numbersSwipeCollection[i].frame.origin.y = self.smallNumberPositionY
+                        if i != bigNumberIndex + 1 {
+                            UIView.animate(withDuration: 0.3, animations: {
+                                self.numbersSwipeCollection[i].frame.origin.x += self.smallNumberSize.width
+                            })
+                        } else {
+                            UIView.animate(withDuration: 0.3, animations: {
+                                self.numbersSwipeCollection[i].frame.origin.x += self.bigNumberSize.width
+                            })
+                        }
+                    }
+                }
+            }
+            
+            break
+        default:
+            print ("other")
+            break
+        }
+    }
+    
+    private func setupButtonSizes() {
+        for i in 0 ... self.numbersSwipeCollection.count - 1 {
+            if i == self.bigNumberIndex {
+                self.numbersSwipeCollection[i].frame.size = self.bigNumberSize
+            } else {
+                self.numbersSwipeCollection[i].frame.size = self.smallNumberSize
+            }
+        }
+    }
+    
+    private func setupButtonFonts() {
+        for i in 0 ... self.numbersSwipeCollection.count - 1 {
+            if i == self.bigNumberIndex {
+                self.numbersSwipeCollection[i].font = self.bigNumberFont
+            } else {
+                self.numbersSwipeCollection[i].font = self.smallNumberFont
+            }
+        }
+    }
 }
 
