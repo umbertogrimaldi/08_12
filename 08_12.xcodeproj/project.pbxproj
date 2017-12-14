@@ -26,11 +26,6 @@
 		835465261FE2DCF700AC2B54 /* MuseoSans_700.otf in Resources */ = {isa = PBXBuildFile; fileRef = 835465211FE2DCF500AC2B54 /* MuseoSans_700.otf */; };
 		835465271FE2DCF700AC2B54 /* MuseoSans-300.otf in Resources */ = {isa = PBXBuildFile; fileRef = 835465221FE2DCF600AC2B54 /* MuseoSans-300.otf */; };
 		835465281FE2DCF700AC2B54 /* MuseoSans-100.otf in Resources */ = {isa = PBXBuildFile; fileRef = 835465231FE2DCF700AC2B54 /* MuseoSans-100.otf */; };
-		83B437C71FE2E16800327929 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83B437C21FE2E16800327929 /* OpenSans-ExtraBold.ttf */; };
-		83B437C81FE2E16800327929 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83B437C31FE2E16800327929 /* OpenSans-Bold.ttf */; };
-		83B437C91FE2E16800327929 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83B437C41FE2E16800327929 /* OpenSans-Light.ttf */; };
-		83B437CA1FE2E16800327929 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83B437C51FE2E16800327929 /* OpenSans-Regular.ttf */; };
-		83B437CB1FE2E16800327929 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83B437C61FE2E16800327929 /* OpenSans-Semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,11 +71,6 @@
 		835465211FE2DCF500AC2B54 /* MuseoSans_700.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuseoSans_700.otf; sourceTree = "<group>"; };
 		835465221FE2DCF600AC2B54 /* MuseoSans-300.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-300.otf"; sourceTree = "<group>"; };
 		835465231FE2DCF700AC2B54 /* MuseoSans-100.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSans-100.otf"; sourceTree = "<group>"; };
-		83B437C21FE2E16800327929 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-ExtraBold.ttf"; path = "../../open-sans/open-sans/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
-		83B437C31FE2E16800327929 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "../../open-sans/open-sans/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
-		83B437C41FE2E16800327929 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "../../open-sans/open-sans/OpenSans-Light.ttf"; sourceTree = "<group>"; };
-		83B437C51FE2E16800327929 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../open-sans/open-sans/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		83B437C61FE2E16800327929 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "../../open-sans/open-sans/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,11 +129,6 @@
 				63BA7E3B1FDBDBBB004E247A /* TableViewCell.swift */,
 				63BA7E3D1FDBE183004E247A /* book.swift */,
 				638AA6081FDECDDB002D5D74 /* booksArray.swift */,
-				83B437C31FE2E16800327929 /* OpenSans-Bold.ttf */,
-				83B437C21FE2E16800327929 /* OpenSans-ExtraBold.ttf */,
-				83B437C41FE2E16800327929 /* OpenSans-Light.ttf */,
-				83B437C51FE2E16800327929 /* OpenSans-Regular.ttf */,
-				83B437C61FE2E16800327929 /* OpenSans-Semibold.ttf */,
 				835465201FE2DCF500AC2B54 /* MuseoSans_500.otf */,
 				835465211FE2DCF500AC2B54 /* MuseoSans_700.otf */,
 				8354651F1FE2DCF400AC2B54 /* MuseoSans_900.otf */,
@@ -285,16 +270,11 @@
 			files = (
 				63BA7E141FDBD7C5004E247A /* LaunchScreen.storyboard in Resources */,
 				63BA7E111FDBD7C5004E247A /* Assets.xcassets in Resources */,
-				83B437C71FE2E16800327929 /* OpenSans-ExtraBold.ttf in Resources */,
-				83B437CB1FE2E16800327929 /* OpenSans-Semibold.ttf in Resources */,
 				835465271FE2DCF700AC2B54 /* MuseoSans-300.otf in Resources */,
 				835465261FE2DCF700AC2B54 /* MuseoSans_700.otf in Resources */,
 				835465241FE2DCF700AC2B54 /* MuseoSans_900.otf in Resources */,
 				835465281FE2DCF700AC2B54 /* MuseoSans-100.otf in Resources */,
 				63BA7E0F1FDBD7C5004E247A /* Main.storyboard in Resources */,
-				83B437C81FE2E16800327929 /* OpenSans-Bold.ttf in Resources */,
-				83B437C91FE2E16800327929 /* OpenSans-Light.ttf in Resources */,
-				83B437CA1FE2E16800327929 /* OpenSans-Regular.ttf in Resources */,
 				835465251FE2DCF700AC2B54 /* MuseoSans_500.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
