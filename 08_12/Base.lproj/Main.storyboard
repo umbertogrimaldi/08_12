@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cMe-cW-ekm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cMe-cW-ekm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +15,9 @@
         </array>
         <array key="MuseoSans-300.otf">
             <string>MuseoSans-300</string>
+        </array>
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
         </array>
     </customFonts>
     <scenes>
@@ -179,28 +181,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="224.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hv2-0h-z9x">
-                                                    <rect key="frame" x="217" y="11" width="113" height="63"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OVv-SC-8xd">
                                                     <rect key="frame" x="22" y="11" width="104" height="183"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjb-1v-T8T">
+                                                    <rect key="frame" x="158" y="22" width="109" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Hv2-0h-z9x" secondAttribute="bottom" constant="47" id="39w-K5-kII"/>
-                                                <constraint firstItem="Hv2-0h-z9x" firstAttribute="top" secondItem="kEm-WP-Xvd" secondAttribute="topMargin" constant="16" id="Djd-0B-Mck"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Hv2-0h-z9x" secondAttribute="trailing" constant="30" id="OHn-5M-nLY"/>
-                                                <constraint firstItem="Hv2-0h-z9x" firstAttribute="top" secondItem="kEm-WP-Xvd" secondAttribute="topMargin" constant="16" id="P9j-t7-8wW"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Hv2-0h-z9x" secondAttribute="trailing" constant="30" id="nb4-0r-uVa"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="myImage" destination="OVv-SC-8xd" id="Fry-ha-FhN"/>
-                                            <outlet property="myText" destination="Hv2-0h-z9x" id="nZW-lX-QjA"/>
+                                            <outlet property="myText" destination="mjb-1v-T8T" id="JTj-Uw-Lkg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -232,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XnS-1U-ajh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="734" y="267"/>
+            <point key="canvasLocation" x="733.60000000000002" y="266.71664167916043"/>
         </scene>
         <!--Item-->
         <scene sceneID="l9s-64-WMx">
