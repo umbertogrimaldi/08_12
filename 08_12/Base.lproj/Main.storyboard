@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Lm-U4-7RN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Lm-U4-7RN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -180,12 +179,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OVv-SC-8xd">
-                                                    <rect key="frame" x="22" y="11" width="104" height="87"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="OVv-SC-8xd" secondAttribute="height" multiplier="1:1" id="8QR-he-pl8"/>
-                                                        <constraint firstAttribute="width" constant="90" id="w8s-vk-44l"/>
-                                                    </constraints>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OVv-SC-8xd">
+                                                    <rect key="frame" x="22" y="11" width="104" height="183"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -193,9 +189,7 @@
                                                 <constraint firstItem="Hv2-0h-z9x" firstAttribute="top" secondItem="kEm-WP-Xvd" secondAttribute="topMargin" constant="16" id="Djd-0B-Mck"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Hv2-0h-z9x" secondAttribute="trailing" constant="30" id="OHn-5M-nLY"/>
                                                 <constraint firstItem="Hv2-0h-z9x" firstAttribute="top" secondItem="kEm-WP-Xvd" secondAttribute="topMargin" constant="16" id="P9j-t7-8wW"/>
-                                                <constraint firstItem="OVv-SC-8xd" firstAttribute="centerY" secondItem="kEm-WP-Xvd" secondAttribute="centerY" id="aqt-RI-7KU"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Hv2-0h-z9x" secondAttribute="trailing" constant="30" id="nb4-0r-uVa"/>
-                                                <constraint firstItem="OVv-SC-8xd" firstAttribute="leading" secondItem="kEm-WP-Xvd" secondAttribute="leading" constant="12" id="ucz-PG-uhQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -232,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XnS-1U-ajh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1196" y="132"/>
+            <point key="canvasLocation" x="1196" y="131.78410794602701"/>
         </scene>
         <!--Item-->
         <scene sceneID="l9s-64-WMx">
