@@ -21,6 +21,8 @@
 		63BA7E3E1FDBE183004E247A /* book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA7E3D1FDBE183004E247A /* book.swift */; };
 		63BA7E401FDBE514004E247A /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA7E3F1FDBE514004E247A /* detailsViewController.swift */; };
 		63BA7E421FDDBEF5004E247A /* ViewControllerReadGeneratedStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA7E411FDDBEF5004E247A /* ViewControllerReadGeneratedStory.swift */; };
+		B00E46811FE2D3BF00E1C65E /* Museo Sans in Resources */ = {isa = PBXBuildFile; fileRef = B00E46801FE2D3BF00E1C65E /* Museo Sans */; };
+		B00E46831FE2D60F00E1C65E /* open-sans in Resources */ = {isa = PBXBuildFile; fileRef = B00E46821FE2D60F00E1C65E /* open-sans */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		63BA7E3D1FDBE183004E247A /* book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = book.swift; sourceTree = "<group>"; };
 		63BA7E3F1FDBE514004E247A /* detailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
 		63BA7E411FDDBEF5004E247A /* ViewControllerReadGeneratedStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerReadGeneratedStory.swift; sourceTree = "<group>"; };
+		B00E46801FE2D3BF00E1C65E /* Museo Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Museo Sans"; path = "../../../../Downloads/MuseoSans/Museo Sans"; sourceTree = "<group>"; };
+		B00E46821FE2D60F00E1C65E /* open-sans */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "open-sans"; path = "../../../../Downloads/open-sans"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 				638AA6081FDECDDB002D5D74 /* booksArray.swift */,
 				636234ED1FE13A5D00A94A62 /* CollectionViewController.swift */,
 				63BA7E0D1FDBD7C5004E247A /* Main.storyboard */,
+				B00E46821FE2D60F00E1C65E /* open-sans */,
+				B00E46801FE2D3BF00E1C65E /* Museo Sans */,
 				63BA7E101FDBD7C5004E247A /* Assets.xcassets */,
 				63BA7E121FDBD7C5004E247A /* LaunchScreen.storyboard */,
 				63BA7E151FDBD7C5004E247A /* Info.plist */,
@@ -253,9 +259,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00E46811FE2D3BF00E1C65E /* Museo Sans in Resources */,
 				63BA7E141FDBD7C5004E247A /* LaunchScreen.storyboard in Resources */,
 				63BA7E111FDBD7C5004E247A /* Assets.xcassets in Resources */,
 				63BA7E0F1FDBD7C5004E247A /* Main.storyboard in Resources */,
+				B00E46831FE2D60F00E1C65E /* open-sans in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
