@@ -43,16 +43,16 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-ExtraBold.ttf</string>
+		<string>OpenSans-Light.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-Semibold.ttf</string>
 		<string>MuseoSans_500.otf</string>
 		<string>MuseoSans_700.otf</string>
 		<string>MuseoSans_900.otf</string>
 		<string>MuseoSans_100.otf</string>
 		<string>MuseoSans_300.otf</string>
-		<string>OpenSans-Bold.tff</string>
-		<string>OpenSans-ExtraBold.tff</string>
-		<string>OpenSans-Light.tff</string>
-		<string>OpenSans-Regular.tff</string>
-		<string>OpenSans-Semibold.tff</string>
 	</array>
 </dict>
 </plist>
