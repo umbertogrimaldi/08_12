@@ -27,23 +27,44 @@ class ViewControllerReadGeneratedStory: UIViewController {
     
     @IBOutlet weak var bookTitle: UITextField!
     @IBOutlet weak var bookText: UITextView!
-    
     var book: Book?
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         bookTitle.text = book?.title
         bookText.text = book?.text
         // Do any additional setup after loading the view.
+        
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Star 2"), style: .plain, target: self, action: #selector(addTapped))
+      
+       
     }
     
-    @IBOutlet weak var buttonState: UIButton!
     
-    @IBAction func changeState(_ sender: Any) {
-
+    
+    @objc func addTapped() {
+        dismiss(animated: true, completion: nil)
+        
+        if navigationItem.rightBarButtonItem!.isEnabled {
+            
+        navigationItem.rightBarButtonItem!.isEnabled = false
+        navigationItem.rightBarButtonItem?.setBackgroundImage(#imageLiteral(resourceName: "Star"), for: .selected, barMetrics: .compact)
+        
+        print("ok")
+        } else {
+            
+            
+            print("okkk")
+        }
+            
+        
+        /*
+        navigationItem.rightBarButtonItem?.setBackgroundImage(#imageLiteral(resourceName: "Star"), for: .selected, barMetrics: .compact)
+        
         if buttonState.isSelected {
             buttonState.backgroundColor = .white
-            
             buttonState.isSelected = false
             buttonState.setImage(#imageLiteral(resourceName: "Star 2"), for: .normal)
             
@@ -52,14 +73,60 @@ class ViewControllerReadGeneratedStory: UIViewController {
             for x in 1...booksArray.shared.books.count {
                 print(booksArray.shared.books[x - 1].title)
                 if booksArray.shared.books[x - 1].title == book?.title {
-                    
                     indexToRemove = x - 1
                 }
             }
             
             booksArray.shared.books.remove(at: indexToRemove!)
+            favouritesBooks.removeObject(forKey: "myArray")
+            let myArray = createArray(books: booksArray.shared.books)
+            favouritesBooks.set(myArray, forKey: "myArray")
             
+        } else {
+            //buttonState.backgroundColor = .red
+            buttonState.isSelected = true
             
+            buttonState.setImage(#imageLiteral(resourceName: "Star"), for: .selected)
+            
+            if let bookes = favouritesBooks.array(forKey: "myArray") as? [[String]]
+            {
+                let books = generatesBooksArray(books: bookes)
+                booksArray.shared.books = books
+            }
+            if booksArray.shared.books.contains(where: { $0.title == book!.title })
+            {
+                //do nothing
+            } else {
+                booksArray.shared.books.append(book!)
+                favouritesBooks.removeObject(forKey: "myArray")
+                let myArray = createArray(books: booksArray.shared.books)
+                favouritesBooks.set(myArray, forKey: "myArray")
+            }
+        }
+        
+        
+       */
+    }
+    
+    @IBOutlet weak var buttonState: UIButton!
+    
+    @IBAction func changeState(_ sender: Any) {
+
+        if buttonState.isSelected {
+            buttonState.backgroundColor = .white
+            buttonState.isSelected = false
+            buttonState.setImage(#imageLiteral(resourceName: "Star 2"), for: .normal)
+            
+            var indexToRemove: Int?
+            
+            for x in 1...booksArray.shared.books.count {
+                
+                if booksArray.shared.books[x - 1].title == book?.title {
+                    indexToRemove = x - 1
+                }
+            }
+            
+            booksArray.shared.books.remove(at: indexToRemove!)
             favouritesBooks.removeObject(forKey: "myArray")
             let myArray = createArray(books: booksArray.shared.books)
             favouritesBooks.set(myArray, forKey: "myArray")
@@ -79,7 +146,7 @@ class ViewControllerReadGeneratedStory: UIViewController {
             {
               //do nothing
             } else {
-                booksArray.shared.books.append(book!)
+                booksArray.shared.books.insert(book!, at: 0)
                 favouritesBooks.removeObject(forKey: "myArray")
                 let myArray = createArray(books: booksArray.shared.books)
                 favouritesBooks.set(myArray, forKey: "myArray")
