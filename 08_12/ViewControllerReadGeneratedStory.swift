@@ -40,18 +40,25 @@ class ViewControllerReadGeneratedStory: UIViewController {
     @IBOutlet weak var buttonState: UIButton!
     
     @IBAction func changeState(_ sender: Any) {
-        
-        
 
         if buttonState.isSelected {
             buttonState.backgroundColor = .white
-            buttonState.isSelected = false
             
+            buttonState.isSelected = false
             buttonState.setImage(#imageLiteral(resourceName: "Star 2"), for: .normal)
             
-            let indexToRemove = (booksArray.shared.books.count - 1)
+            var indexToRemove: Int?
             
-            booksArray.shared.books.remove(at: indexToRemove)
+            for x in 1...booksArray.shared.books.count {
+                print(booksArray.shared.books[x - 1].title)
+                if booksArray.shared.books[x - 1].title == book?.title {
+                    
+                    indexToRemove = x - 1
+                }
+            }
+            
+            booksArray.shared.books.remove(at: indexToRemove!)
+            
             
             favouritesBooks.removeObject(forKey: "myArray")
             let myArray = createArray(books: booksArray.shared.books)
