@@ -117,7 +117,8 @@ class ViewController: UIViewController {
         
         self.setupButtonSizes()
         self.setupButtonFonts()
-        //favouritesBooks.removeObject(forKey: "myArray")
+        
+        favouritesBooks.removeObject(forKey: "myArray")
         // Do any additional setup after loading the view, typically from a nib.
        
         

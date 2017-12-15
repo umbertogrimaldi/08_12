@@ -12,7 +12,9 @@ class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var myImage: UIImageView!
     @IBOutlet weak var myText: UILabel!
-    @IBOutlet weak var labelCategory: UILabel!
+    @IBOutlet weak var category: UILabel!
+    @IBOutlet weak var categoryView: UIView!
+    
     
     func setBook(book : Book)  {
         
@@ -20,16 +22,19 @@ class TableViewCell: UITableViewCell {
         
         myImage.image = myImagen
         myText.text = book.title
-        labelCategory.text = book.category
+        category.text = (" " + book.category + " ")
         
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        labelCategory.layer.cornerRadius = 5.0
-        labelCategory.layer.borderWidth = 1.0
-        labelCategory.layer.borderColor = UIColor.purple.cgColor
+        categoryView.layer.cornerRadius = 9.0
+        categoryView.layer.borderWidth = 1.0
+        categoryView.layer.borderColor = UIColor.purple.cgColor
+        category.textColor = .purple
+//        labelCategory.textAlignment = .center
     }
 
 }
+
