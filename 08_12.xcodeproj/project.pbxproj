@@ -157,7 +157,21 @@
 				63BA7E0D1FDBD7C5004E247A /* Main.storyboard */,
 				83B438001FE3F0EF00327929 /* NavigationTableViewController.storyboard */,
 				83B437FE1FE3EEF500327929 /* CellCollectionView.storyboard */,
-				83CD83BC1FE4228800F1269E /* Fonts */,
+				835465201FE2DCF500AC2B54 /* MuseoSans_500.otf */,
+				835465211FE2DCF500AC2B54 /* MuseoSans_700.otf */,
+				8354651F1FE2DCF400AC2B54 /* MuseoSans_900.otf */,
+				835465231FE2DCF700AC2B54 /* MuseoSans-100.otf */,
+				835465221FE2DCF600AC2B54 /* MuseoSans-300.otf */,
+				83B437CC1FE2E6FD00327929 /* OpenSans-BoldItalic.ttf */,
+				83B437CD1FE2E6FD00327929 /* OpenSans-ExtraBoldItalic.ttf */,
+				83B437CE1FE2E6FD00327929 /* OpenSans-Italic.ttf */,
+				83B437D41FE2E6FE00327929 /* OpenSans-LightItalic.ttf */,
+				83B437D51FE2E6FE00327929 /* OpenSans-SemiboldItalic.ttf */,
+				83B437F41FE3E29000327929 /* OpenSans-Bold.ttf */,
+				83B437F61FE3E35000327929 /* OpenSans-ExtraBold.ttf */,
+				83B437F81FE3E3CF00327929 /* OpenSans-Light.ttf */,
+				83B437FA1FE3E3F900327929 /* OpenSans-Regular.ttf */,
+				83B437FC1FE3E41400327929 /* OpenSans-Semibold.ttf */,
 				63BA7E101FDBD7C5004E247A /* Assets.xcassets */,
 				63BA7E121FDBD7C5004E247A /* LaunchScreen.storyboard */,
 				63BA7E151FDBD7C5004E247A /* Info.plist */,
@@ -181,28 +195,6 @@
 				63BA7E2B1FDBD7C5004E247A /* Info.plist */,
 			);
 			path = 08_12UITests;
-			sourceTree = "<group>";
-		};
-		83CD83BC1FE4228800F1269E /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				835465201FE2DCF500AC2B54 /* MuseoSans_500.otf */,
-				835465211FE2DCF500AC2B54 /* MuseoSans_700.otf */,
-				8354651F1FE2DCF400AC2B54 /* MuseoSans_900.otf */,
-				835465231FE2DCF700AC2B54 /* MuseoSans-100.otf */,
-				835465221FE2DCF600AC2B54 /* MuseoSans-300.otf */,
-				83B437CC1FE2E6FD00327929 /* OpenSans-BoldItalic.ttf */,
-				83B437CD1FE2E6FD00327929 /* OpenSans-ExtraBoldItalic.ttf */,
-				83B437CE1FE2E6FD00327929 /* OpenSans-Italic.ttf */,
-				83B437D41FE2E6FE00327929 /* OpenSans-LightItalic.ttf */,
-				83B437D51FE2E6FE00327929 /* OpenSans-SemiboldItalic.ttf */,
-				83B437F41FE3E29000327929 /* OpenSans-Bold.ttf */,
-				83B437F61FE3E35000327929 /* OpenSans-ExtraBold.ttf */,
-				83B437F81FE3E3CF00327929 /* OpenSans-Light.ttf */,
-				83B437FA1FE3E3F900327929 /* OpenSans-Regular.ttf */,
-				83B437FC1FE3E41400327929 /* OpenSans-Semibold.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
