@@ -104,13 +104,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController!.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .clear
+        
         navigationController?.delegate = self
+        
         swipeLeft.direction = .left
         swipeRight.direction = .right
+        
         self.setupButtonSizes()
         self.setupButtonFonts()
         //favouritesBooks.removeObject(forKey: "myArray")
@@ -203,13 +207,19 @@ class ViewController: UIViewController {
     }
 }
 
+// making the tab bar appear disapperar depending on the viewcontroller
+
 extension ViewController: UINavigationControllerDelegate {
+    
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        
+        
         if viewController is ViewControllerReadGeneratedStory {
             viewController.tabBarController?.tabBar.isHidden = true
         }
         else {
             viewController.tabBarController?.tabBar.isHidden = false
         }
+        
     }
 }

@@ -19,6 +19,7 @@ class detailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        tabBarController?.tabBar.isHidden = true
 
         // Do any additional setup after loading the view.
     }
