@@ -115,7 +115,8 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
 
 extension ViewControllerTableView: UINavigationControllerDelegate {
     
-    private func navigationController(_ navigationController: UINavigationController, willShow viewController: ViewControllerTableView, animated: Bool) {
+    
+     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         
         if viewController is detailsViewController {
             viewController.tabBarController?.tabBar.isHidden = true

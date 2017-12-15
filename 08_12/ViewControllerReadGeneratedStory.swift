@@ -40,29 +40,44 @@ class ViewControllerReadGeneratedStory: UIViewController {
         
         tabBarController?.tabBar.isHidden = true
         
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Star 2"), style: .done, target: self, action: #selector(addTapped))
-      
-    }
+        var botton = UIBarButtonItem(image: #imageLiteral(resourceName: "Star 2"), style: .plain, target: self, action: #selector(addTapped))
+     
+        navigationItem.setRightBarButtonItems([botton], animated: true)
+        
+        //navigationItem.rightBarButtonItem?.tintColor = UIColor.darkGray
+        
+//        rightBarButtonItem?.setBackgroundImage(#imageLiteral(resourceName: "Star 2"), for: .normal, barMetrics: .default)
+
     
+    }
     
     @objc func addTapped() {
         //dismiss(animated: true, completion: nil)
-//
-//        if isSelected {
-//
-//            isSelected = false
+
+        if isSelected {
+
+            isSelected = false
+            
 //            navigationItem.rightBarButtonItem?.setBackgroundImage(#imageLiteral(resourceName: "Star 2"), for: .normal, barMetrics: .default)
-//
-//
-//            print("ok")
-//
-//        } else {
-//
-//            isSelected = true
+            
+            var botton = UIBarButtonItem(image: #imageLiteral(resourceName: "Star 2"), style: .plain, target: self, action: #selector(addTapped))
+            navigationItem.setRightBarButtonItems([botton], animated: true)
+            
+            print("ok")
+
+        } else {
+
+            isSelected = true
+            
+            var botton = UIBarButtonItem(image: #imageLiteral(resourceName: "Star"), style: .plain, target: self, action: #selector(addTapped))
+            
+            navigationItem.setRightBarButtonItems([botton], animated: true)
+            
 //            navigationItem.rightBarButtonItem?.setBackgroundImage(#imageLiteral(resourceName: "Star"), for: .normal, barMetrics: .default)
-//
-//            print("okkk")
-//        }
+            
+            print("okkk")
+ 
+        }
         
         
         /*
