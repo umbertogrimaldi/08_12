@@ -43,6 +43,7 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
+		<string>OpensSans-Bold.ttf</string>
 		<string>OpensSans-BoldItalic.ttf</string>
 		<string>OpensSans-ExtraBoldItalic.ttf</string>
 		<string>OpensSans-Italic.ttf</string>

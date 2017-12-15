@@ -31,6 +31,7 @@
 		83B437D81FE2E6FE00327929 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83B437CE1FE2E6FD00327929 /* OpenSans-Italic.ttf */; };
 		83B437DE1FE2E6FE00327929 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83B437D41FE2E6FE00327929 /* OpenSans-LightItalic.ttf */; };
 		83B437DF1FE2E6FE00327929 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83B437D51FE2E6FE00327929 /* OpenSans-SemiboldItalic.ttf */; };
+		83B437F51FE3E29000327929 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83B437F41FE3E29000327929 /* OpenSans-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		83B437CE1FE2E6FD00327929 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
 		83B437D41FE2E6FE00327929 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		83B437D51FE2E6FE00327929 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		83B437F41FE3E29000327929 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				83B437CE1FE2E6FD00327929 /* OpenSans-Italic.ttf */,
 				83B437D41FE2E6FE00327929 /* OpenSans-LightItalic.ttf */,
 				83B437D51FE2E6FE00327929 /* OpenSans-SemiboldItalic.ttf */,
+				83B437F41FE3E29000327929 /* OpenSans-Bold.ttf */,
 				636234ED1FE13A5D00A94A62 /* CollectionViewController.swift */,
 				63BA7E0D1FDBD7C5004E247A /* Main.storyboard */,
 				63BA7E101FDBD7C5004E247A /* Assets.xcassets */,
@@ -291,6 +294,7 @@
 				835465241FE2DCF700AC2B54 /* MuseoSans_900.otf in Resources */,
 				835465281FE2DCF700AC2B54 /* MuseoSans-100.otf in Resources */,
 				83B437D61FE2E6FE00327929 /* OpenSans-BoldItalic.ttf in Resources */,
+				83B437F51FE3E29000327929 /* OpenSans-Bold.ttf in Resources */,
 				83B437DE1FE2E6FE00327929 /* OpenSans-LightItalic.ttf in Resources */,
 				83B437D71FE2E6FE00327929 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				83B437DF1FE2E6FE00327929 /* OpenSans-SemiboldItalic.ttf in Resources */,
