@@ -36,11 +36,12 @@ class ViewControllerReadGeneratedStory: UIViewController {
         bookTitle.text = book?.title
         bookText.text = book?.text
         // Do any additional setup after loading the view.
-        
+        tabBarController?.tabBar.isHidden = true
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Star 2"), style: .plain, target: self, action: #selector(addTapped))
       
        
     }
+    
     
     
     

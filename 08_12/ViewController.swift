@@ -108,7 +108,7 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController!.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .clear
-        
+        navigationController?.delegate = self
         swipeLeft.direction = .left
         swipeRight.direction = .right
         self.setupButtonSizes()
@@ -203,3 +203,13 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController is ViewControllerReadGeneratedStory {
+            viewController.tabBarController?.tabBar.isHidden = true
+        }
+        else {
+            viewController.tabBarController?.tabBar.isHidden = false
+        }
+    }
+}
