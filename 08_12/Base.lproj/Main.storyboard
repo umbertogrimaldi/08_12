@@ -114,7 +114,7 @@
             </objects>
             <point key="canvasLocation" x="2156" y="-985.45727136431788"/>
         </scene>
-        <!--View Controller Read Generated Story-->
+        <!--Title-->
         <scene sceneID="T83-P4-JvH">
             <objects>
                 <viewController id="u6A-pO-ywh" customClass="ViewControllerReadGeneratedStory" customModule="_8_12" customModuleProvider="target" sceneMemberID="viewController">
@@ -137,22 +137,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gO-Jh-s8B">
-                                <rect key="frame" x="154" y="399" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="Star 2"/>
-                                <connections>
-                                    <action selector="changeState:" destination="u6A-pO-ywh" eventType="touchUpInside" id="k2a-AS-4cY"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dW0-re-85G"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="scC-eD-yW8">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="PPw-yE-1NA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="P3W-Pg-fft">
+                                <rect key="frame" x="329" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changeBackground:" destination="u6A-pO-ywh" eventType="touchUpInside" id="mzZ-fa-uVK"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="1" green="0.13796565020000001" blue="0.14965701710000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bookText" destination="nfx-i5-icw" id="6d7-3p-mTi"/>
                         <outlet property="bookTitle" destination="ZRh-2u-EmW" id="y0b-aX-KA9"/>
-                        <outlet property="buttonState" destination="7gO-Jh-s8B" id="URb-Lw-LmN"/>
+                        <outlet property="favButton" destination="P3W-Pg-fft" id="Dcy-2h-LjN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sqm-ti-jn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,17 +188,17 @@
         <scene sceneID="aUQ-1q-XaL">
             <objects>
                 <viewControllerPlaceholder storyboardName="NavigationTableViewController" referencedIdentifier="NavigationTableViewController" id="MVe-Cd-d7y" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ln9-2V-75Y"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" image="fav_icon_active" id="ln9-2V-75Y"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oi6-pj-BD5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="252" y="94"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="j2S-y8-dlJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LJV-VA-YFu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="R9W-At-DUV"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home_icon" id="R9W-At-DUV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CRi-O2-Blu">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -213,7 +217,7 @@
         <scene sceneID="oOA-MZ-tQk">
             <objects>
                 <viewControllerPlaceholder storyboardName="CellCollectionView" referencedIdentifier="CellCollectionView" id="XCO-k7-m7f" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="8IC-wM-ea2"/>
+                    <tabBarItem key="tabBarItem" title="Genres" image="genres_icon_active" id="8IC-wM-ea2"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WsL-ep-oiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -221,7 +225,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Star 2" width="144" height="138"/>
         <image name="background_with_text" width="750" height="1040"/>
+        <image name="fav_icon_active" width="23" height="23"/>
+        <image name="genres_icon_active" width="23" height="22"/>
+        <image name="home_icon" width="20" height="21"/>
     </resources>
 </document>

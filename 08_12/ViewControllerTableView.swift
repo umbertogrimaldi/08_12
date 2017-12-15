@@ -20,7 +20,6 @@ func generatesBooksArray(books: [[String]]) -> [Book] {
     return finalArray
 }
 
-
 class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var booksTableView: UITableView!
@@ -29,8 +28,7 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
         navigationController?.delegate = self
     }
     
@@ -97,25 +95,12 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
         }
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 // making the tab bar appear disapperar depending on the viewcontroller
 
 extension ViewControllerTableView: UINavigationControllerDelegate {
-    
-    
+
      func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         
         if viewController is detailsViewController {
@@ -124,6 +109,5 @@ extension ViewControllerTableView: UINavigationControllerDelegate {
         else {
             viewController.tabBarController?.tabBar.isHidden = false
         }
-}
-
+    }
 }

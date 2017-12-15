@@ -105,21 +105,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController!.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.backgroundColor = .clear
-        
-        navigationController?.delegate = self 
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController!.navigationBar.isTranslucent = true
+//        navigationController?.navigationBar.backgroundColor = .clear
+//
+        navigationController?.delegate = self
         
         swipeLeft.direction = .left
         swipeRight.direction = .right
         
         self.setupButtonSizes()
         self.setupButtonFonts()
+        
         //favouritesBooks.removeObject(forKey: "myArray")
         // Do any additional setup after loading the view, typically from a nib.
-       
+        
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().barTintColor = UIColor.red
+        UITabBar.appearance().tintColor = UIColor.white
         
         
        
