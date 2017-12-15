@@ -108,9 +108,21 @@ extension ViewControllerTableView: UINavigationControllerDelegate {
         
         if viewController is detailsViewController {
             viewController.tabBarController?.tabBar.isHidden = true
+            if #available(iOS 11.0, *) {
+                viewController.navigationController?.navigationBar.prefersLargeTitles = false
+            } else {
+                // Fallback on earlier versions
+            }
         }
         else {
             viewController.tabBarController?.tabBar.isHidden = false
+            if #available(iOS 11.0, *) {
+                viewController.navigationController?.navigationBar.prefersLargeTitles = true
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
 }
+
+

@@ -42,7 +42,13 @@ class TableViewCell: UITableViewCell {
         
 //        AUTHOR MODIFIES
         authorLabel.textColor = UIColor(red:0.45, green:0.45, blue:0.45, alpha:1.0)
+        
     }
+    
+    
 
 }
+
+
+
 
