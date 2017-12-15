@@ -11,10 +11,13 @@ import UIKit
 func generatesBooksArray(books: [[String]]) -> [Book] {
     var finalArray:  [Book] = []
     for elem in books {
-        let book: Book = Book(image: "",title: "", text: "")
+        let book: Book = Book(image: "",title: "", text: "", author: "", category: "")
         book.title = elem[0]
         book.text = elem[1]
         book.image = elem[2]
+        book.author = elem[3]
+        book.category = elem[4]
+        
         finalArray.append(book)
     }
     return finalArray
