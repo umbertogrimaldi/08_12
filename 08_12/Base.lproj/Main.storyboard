@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cMe-cW-ekm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cMe-cW-ekm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -114,7 +114,7 @@
             </objects>
             <point key="canvasLocation" x="2156" y="-985.45727136431788"/>
         </scene>
-        <!--View Controller Read Generated Story-->
+        <!--Title-->
         <scene sceneID="T83-P4-JvH">
             <objects>
                 <viewController id="u6A-pO-ywh" customClass="ViewControllerReadGeneratedStory" customModule="_8_12" customModuleProvider="target" sceneMemberID="viewController">
@@ -137,22 +137,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gO-Jh-s8B">
-                                <rect key="frame" x="154" y="399" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="Star 2"/>
-                                <connections>
-                                    <action selector="changeState:" destination="u6A-pO-ywh" eventType="touchUpInside" id="k2a-AS-4cY"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dW0-re-85G"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="tvw-Nh-sfE"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Title" id="SDG-lb-Ymv">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="y7Y-8I-ruj">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TQc-Kf-NBm">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="changeBackground:" destination="u6A-pO-ywh" eventType="touchUpInside" id="yC0-EV-MAA"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bookText" destination="nfx-i5-icw" id="6d7-3p-mTi"/>
                         <outlet property="bookTitle" destination="ZRh-2u-EmW" id="y0b-aX-KA9"/>
-                        <outlet property="buttonState" destination="7gO-Jh-s8B" id="URb-Lw-LmN"/>
+                        <outlet property="favButton" destination="TQc-Kf-NBm" id="8gI-SP-a3N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sqm-ti-jn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -221,7 +228,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Star 2" width="144" height="138"/>
         <image name="background_with_text" width="750" height="1040"/>
     </resources>
 </document>
