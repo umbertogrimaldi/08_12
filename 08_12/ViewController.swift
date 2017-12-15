@@ -110,7 +110,7 @@ class ViewController: UIViewController {
         navigationController!.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .clear
         
-        navigationController?.delegate = self
+        navigationController?.delegate = self 
         
         swipeLeft.direction = .left
         swipeRight.direction = .right
@@ -208,11 +208,9 @@ class ViewController: UIViewController {
 }
 
 // making the tab bar appear disapperar depending on the viewcontroller
-
 extension ViewController: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        
         
         if viewController is ViewControllerReadGeneratedStory {
             viewController.tabBarController?.tabBar.isHidden = true
@@ -223,3 +221,4 @@ extension ViewController: UINavigationControllerDelegate {
         
     }
 }
+

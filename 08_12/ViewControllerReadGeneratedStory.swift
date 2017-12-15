@@ -28,6 +28,7 @@ class ViewControllerReadGeneratedStory: UIViewController {
     @IBOutlet weak var bookTitle: UITextField!
     @IBOutlet weak var bookText: UITextView!
     var book: Book?
+    var isSelected: Bool = false
     
     
 
@@ -39,29 +40,30 @@ class ViewControllerReadGeneratedStory: UIViewController {
         
         tabBarController?.tabBar.isHidden = true
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Star 2"), style: .plain, target: self, action: #selector(addTapped))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Star 2"), style: .done, target: self, action: #selector(addTapped))
       
-       
     }
     
     
-    
-    
     @objc func addTapped() {
-        dismiss(animated: true, completion: nil)
+        //dismiss(animated: true, completion: nil)
+//
+//        if isSelected {
+//
+//            isSelected = false
+//            navigationItem.rightBarButtonItem?.setBackgroundImage(#imageLiteral(resourceName: "Star 2"), for: .normal, barMetrics: .default)
+//
+//
+//            print("ok")
+//
+//        } else {
+//
+//            isSelected = true
+//            navigationItem.rightBarButtonItem?.setBackgroundImage(#imageLiteral(resourceName: "Star"), for: .normal, barMetrics: .default)
+//
+//            print("okkk")
+//        }
         
-        if navigationItem.rightBarButtonItem!.isEnabled {
-            
-        navigationItem.rightBarButtonItem!.isEnabled = false
-        navigationItem.rightBarButtonItem?.setBackgroundImage(#imageLiteral(resourceName: "Star"), for: .selected, barMetrics: .compact)
-        
-        print("ok")
-        } else {
-            
-            
-            print("okkk")
-        }
-            
         
         /*
         navigationItem.rightBarButtonItem?.setBackgroundImage(#imageLiteral(resourceName: "Star"), for: .selected, barMetrics: .compact)

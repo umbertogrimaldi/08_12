@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6319D50C1FE3F0CF00E0FAD1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 6319D50B1FE3F0CF00E0FAD1 /* .gitignore */; };
 		636234EE1FE13A5D00A94A62 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636234ED1FE13A5D00A94A62 /* CollectionViewController.swift */; };
 		638AA6091FDECDDB002D5D74 /* booksArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AA6081FDECDDB002D5D74 /* booksArray.swift */; };
 		63BA7E0A1FDBD7C5004E247A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA7E091FDBD7C5004E247A /* AppDelegate.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6319D50B1FE3F0CF00E0FAD1 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		636234ED1FE13A5D00A94A62 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		638AA6081FDECDDB002D5D74 /* booksArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksArray.swift; sourceTree = "<group>"; };
 		63BA7E061FDBD7C5004E247A /* 08_12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 08_12.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 				83B437F81FE3E3CF00327929 /* OpenSans-Light.ttf */,
 				83B437FA1FE3E3F900327929 /* OpenSans-Regular.ttf */,
 				83B437FC1FE3E41400327929 /* OpenSans-Semibold.ttf */,
+				6319D50B1FE3F0CF00E0FAD1 /* .gitignore */,
 				636234ED1FE13A5D00A94A62 /* CollectionViewController.swift */,
 				63BA7E0D1FDBD7C5004E247A /* Main.storyboard */,
 				63BA7E101FDBD7C5004E247A /* Assets.xcassets */,
@@ -309,6 +312,7 @@
 				83B437F51FE3E29000327929 /* OpenSans-Bold.ttf in Resources */,
 				83B437DE1FE2E6FE00327929 /* OpenSans-LightItalic.ttf in Resources */,
 				83B437F91FE3E3D000327929 /* OpenSans-Light.ttf in Resources */,
+				6319D50C1FE3F0CF00E0FAD1 /* .gitignore in Resources */,
 				83B437D71FE2E6FE00327929 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				83B437FD1FE3E41400327929 /* OpenSans-Semibold.ttf in Resources */,
 				83B437DF1FE2E6FE00327929 /* OpenSans-SemiboldItalic.ttf in Resources */,
