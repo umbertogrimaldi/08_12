@@ -29,6 +29,9 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        navigationController?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,6 +96,8 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
             
         }
     }
+    
+    
 
     /*
     // MARK: - Navigation
@@ -103,5 +108,21 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+// making the tab bar appear disapperar depending on the viewcontroller
+
+extension ViewControllerTableView: UINavigationControllerDelegate {
+    
+    private func navigationController(_ navigationController: UINavigationController, willShow viewController: ViewControllerTableView, animated: Bool) {
+        
+        if viewController is detailsViewController {
+            viewController.tabBarController?.tabBar.isHidden = true
+        }
+        else {
+            viewController.tabBarController?.tabBar.isHidden = false
+        }
+}
 
 }
