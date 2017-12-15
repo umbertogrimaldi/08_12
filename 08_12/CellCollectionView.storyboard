@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Genres-->
         <scene sceneID="ueY-v4-D5k">
             <objects>
                 <collectionViewController storyboardIdentifier="CellCollectionView" id="7nX-fb-Gse" customClass="CollectionViewController" customModule="_8_12" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,7 +48,7 @@
                             <outlet property="delegate" destination="7nX-fb-Gse" id="4Pg-KS-Kw3"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="n9I-zw-82i"/>
+                    <tabBarItem key="tabBarItem" title="Genres" image="genres_icon_active" id="n9I-zw-82i"/>
                     <connections>
                         <outlet property="myCollection" destination="OGY-Qh-nwR" id="1Hi-1a-gHO"/>
                     </connections>
@@ -58,4 +58,7 @@
             <point key="canvasLocation" x="238" y="1538"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="genres_icon_active" width="23" height="22"/>
+    </resources>
 </document>
