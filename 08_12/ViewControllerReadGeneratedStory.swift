@@ -17,6 +17,8 @@ func createArray(books: [Book]) -> [[String]] {
         bookArray.append(elem.title)
         bookArray.append(elem.text)
         bookArray.append(elem.image)
+        bookArray.append(elem.author)
+        bookArray.append(elem.category)
         finalArray.append(bookArray)
     }
     return finalArray
