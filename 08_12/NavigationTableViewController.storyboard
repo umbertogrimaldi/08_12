@@ -19,7 +19,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller Table View-->
+        <!--Favourites-->
         <scene sceneID="VXO-oL-fOS">
             <objects>
                 <viewController id="R85-aO-IYw" customClass="ViewControllerTableView" customModule="_8_12" customModuleProvider="target" sceneMemberID="viewController">
@@ -119,7 +119,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="33w-Bb-kPC"/>
                     </view>
-                    <navigationItem key="navigationItem" id="LZ0-ns-8HA"/>
+                    <navigationItem key="navigationItem" title="Favourites" id="LZ0-ns-8HA"/>
                     <connections>
                         <outlet property="booksTableView" destination="p0o-Cr-FLJ" id="AY6-Wo-oR5"/>
                         <segue destination="ARy-ZL-ZFK" kind="show" identifier="toDetails" id="wBK-Qg-dKS">
