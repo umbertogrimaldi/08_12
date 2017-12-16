@@ -16,26 +16,29 @@ class InitialCollectionViewController: UIViewController,UICollectionViewDelegate
     @IBOutlet weak var genreCollection: UICollectionView!
     
     
+
     @IBOutlet weak var nextButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let bol = firstLaunch.bool(forKey: "isFirstLaunch")
-        
-        if bol {
-            
-            firstLaunch.set(false, forKey: "isFirstLaunch")
-            
-            
-            
-        } else {
-            
-        }
-        
-            
-            firstLaunch.set(true, forKey: "isFirstLaunch")
+//        let bol = firstLaunch.bool(forKey: "isFirstLaunch")
+//        
+//        
+//        
+//        if bol {
+//            
+//            firstLaunch.set(false, forKey: "isFirstLaunch")
+//            
+//            
+//            
+//        } else {
+//            
+//        }
+//        
+//            
+//            firstLaunch.set(true, forKey: "isFirstLaunch")
             
             //self.genreCollection.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
             genreCollection.backgroundColor = UIColor.red
@@ -44,22 +47,13 @@ class InitialCollectionViewController: UIViewController,UICollectionViewDelegate
             genreCollection.dataSource = self
             
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func closeView(_ sender: Any) {
+        dismiss(animated: true) {
+            //user defaults set true
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-     */
     
     var genreArray: [String] = ["Romance","Thriller","Fiction","Fantasy","Biography"]
 
