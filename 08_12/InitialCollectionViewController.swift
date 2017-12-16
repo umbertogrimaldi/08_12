@@ -15,11 +15,12 @@ class InitialCollectionViewController: UIViewController,UICollectionViewDelegate
     
     @IBOutlet weak var genreCollection: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        titleLabel.text = "Select one or more genres"
 // Do any additional setup after loading the view.
         
 //          let bol = firstLaunch.bool(forKey: "isFirstLaunch")
@@ -76,7 +77,9 @@ class InitialCollectionViewController: UIViewController,UICollectionViewDelegate
         cell!.backgroundColor = .white
 
         let myGenre = (genreArray[indexPath.row])
-
+        
+        titleLabel.text = "I'm interested in"
+        
         savedGenre.set(myGenre, forKey: "myGenre")
 
     }

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xiK-s9-GCB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="118" width="375" height="435"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bky-iI-OTV">
@@ -61,18 +61,27 @@
                                     <action selector="closeView:" destination="bir-ZO-46J" eventType="touchUpInside" id="3mI-25-OaV"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpH-IA-DRW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fXX-gL-HS8"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2If-IZ-li7"/>
                     <connections>
                         <outlet property="genreCollection" destination="xiK-s9-GCB" id="Z3i-bw-cVV"/>
                         <outlet property="nextButton" destination="h5u-O1-sKT" id="Xu5-Fc-Rf4"/>
+                        <outlet property="titleLabel" destination="BpH-IA-DRW" id="0lv-E8-4aX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rb-4i-2jb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1386" y="154"/>
+            <point key="canvasLocation" x="-914.39999999999998" y="151.57421289355324"/>
         </scene>
     </scenes>
 </document>
