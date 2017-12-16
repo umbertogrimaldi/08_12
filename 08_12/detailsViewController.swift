@@ -10,9 +10,14 @@ import UIKit
 
 class detailsViewController: UIViewController {
     
-    @IBOutlet weak var detailTitle: UITextField!
+  
     @IBOutlet weak var detailImage: UIImageView!
+    @IBOutlet weak var detailTitle: UILabel!
+    @IBOutlet weak var detailAuthor: UILabel!
+    @IBOutlet weak var detailCategory: UILabel!
+    @IBOutlet weak var detailCategoryView: UIView!
     @IBOutlet weak var detailText: UITextView!
+    
     
     var book: Book?
     
@@ -20,6 +25,29 @@ class detailsViewController: UIViewController {
         super.viewDidLoad()
         setUI()
         tabBarController?.tabBar.isHidden = true
+        
+        
+        detailImage.backgroundColor = UIColor.purple
+        
+        
+//        CATEGORY MODIFIES
+        
+        detailCategoryView.layer.cornerRadius = 9.0
+        detailCategoryView.layer.borderWidth = 0.5
+        detailCategoryView.layer.borderColor = UIColor.purple.cgColor
+        detailCategory.textColor = .purple
+        
+        
+//        TITLE MODIFIES
+        
+        detailTitle.textColor = UIColor(red:0.21, green:0.21, blue:0.21, alpha:1.0)
+        
+//        AUTHOR MODIFIES
+        
+        detailAuthor.textColor = UIColor(red:0.45, green:0.45, blue:0.45, alpha:1.0)
+        
+//        TEXT MODIFIES
+        detailText.textColor = UIColor(red:0.21, green:0.21, blue:0.21, alpha:1.0)
 
         // Do any additional setup after loading the view.
     }
@@ -30,11 +58,13 @@ class detailsViewController: UIViewController {
     }
     
     func setUI(){
-        let myImagen = UIImage(named: book!.image)
+      let myImagen = UIImage(named: book!.image)
         
         detailText.text = book?.text
         detailImage.image = myImagen
         detailTitle.text = book?.title
+        detailAuthor.text = book?.author
+        detailCategory.text = book?.category
     }
     
     /*
