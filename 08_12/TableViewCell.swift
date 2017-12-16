@@ -14,6 +14,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var myText: UILabel!
     @IBOutlet weak var category: UILabel!
     @IBOutlet weak var categoryView: UIView!
+    @IBOutlet weak var authorLabel: UILabel!
     
     
     func setBook(book : Book)  {
@@ -22,7 +23,8 @@ class TableViewCell: UITableViewCell {
         
         myImage.image = myImagen
         myText.text = book.title
-        category.text = (" " + book.category + " ")
+        category.text = book.category
+        authorLabel.text = book.author
         
     }
     
@@ -33,8 +35,20 @@ class TableViewCell: UITableViewCell {
         categoryView.layer.borderWidth = 1.0
         categoryView.layer.borderColor = UIColor.purple.cgColor
         category.textColor = .purple
-//        labelCategory.textAlignment = .center
+
+        
+//        TITLE MODIFIES
+        myText.textColor = UIColor(red:0.21, green:0.21, blue:0.21, alpha:1.0)
+        
+//        AUTHOR MODIFIES
+        authorLabel.textColor = UIColor(red:0.45, green:0.45, blue:0.45, alpha:1.0)
+        
     }
+    
+    
 
 }
+
+
+
 
