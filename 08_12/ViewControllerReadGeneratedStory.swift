@@ -89,6 +89,8 @@ class ViewControllerReadGeneratedStory: UIViewController {
         super.viewDidLoad()
         bookTitle.text = book?.title
         bookText.text = book?.text
+        
+        
         // Do any additional setup after loading the view.
         
         favButton.setImage(#imageLiteral(resourceName: "star_notselected"), for: .normal)

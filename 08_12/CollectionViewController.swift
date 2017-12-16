@@ -80,6 +80,7 @@ class CollectionViewController: UICollectionViewController {
         if cell.isSelected == true {
             cell.backgroundColor = .white
         }
+        
         return cell
     }
 

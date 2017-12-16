@@ -12,48 +12,39 @@ import UIKit
 var firstLaunch = UserDefaults.standard
 
 class InitialCollectionViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-
+    
     @IBOutlet weak var genreCollection: UICollectionView!
-    
-    
-
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-//        let bol = firstLaunch.bool(forKey: "isFirstLaunch")
-//        
-//        
-//        
-//        if bol {
+        titleLabel.text = "Select one or more genres"
+// Do any additional setup after loading the view.
+        
+//          let bol = firstLaunch.bool(forKey: "isFirstLaunch")
+//
+//              if bol {
 //            
-//            firstLaunch.set(false, forKey: "isFirstLaunch")
+//                  firstLaunch.set(false, forKey: "isFirstLaunch")
+//
+//              } else {
 //            
-//            
-//            
-//        } else {
-//            
-//        }
-//        
-//            
-//            firstLaunch.set(true, forKey: "isFirstLaunch")
-            
-            //self.genreCollection.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-            genreCollection.backgroundColor = UIColor.red
-            
+//          }
+//          firstLaunch.set(true, forKey: "isFirstLaunch")
+//          self.genreCollection.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        
             genreCollection.delegate = self
             genreCollection.dataSource = self
-            
+
     }
     
     @IBAction func closeView(_ sender: Any) {
         dismiss(animated: true) {
-            //user defaults set true
+
         }
     }
-    
     
     var genreArray: [String] = ["Romance","Thriller","Fiction","Fantasy","Biography"]
 
@@ -62,14 +53,13 @@ class InitialCollectionViewController: UIViewController,UICollectionViewDelegate
         return 1
     }
 
-
      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return genreArray.count
     }
 
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "genreCell", for: indexPath) as UICollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as UICollectionViewCell
 
         let label = cell.viewWithTag(2) as! UILabel
 
@@ -81,22 +71,24 @@ class InitialCollectionViewController: UIViewController,UICollectionViewDelegate
         return cell
     }
 
-
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
+        
         cell!.backgroundColor = .white
 
         let myGenre = (genreArray[indexPath.row])
-
+        
+        titleLabel.text = "I'm interested in"
+        
         savedGenre.set(myGenre, forKey: "myGenre")
 
     }
 
      func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-
         let cell = collectionView.cellForItem(at: indexPath)
         cell!.backgroundColor = .blue
         savedGenre.removeObject(forKey: "myGenre")
     }
+    
 
 }
