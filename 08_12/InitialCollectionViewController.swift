@@ -82,7 +82,6 @@ class InitialCollectionViewController: UIViewController,UICollectionViewDelegate
     }
 
      func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-
         let cell = collectionView.cellForItem(at: indexPath)
         cell!.backgroundColor = .blue
         savedGenre.removeObject(forKey: "myGenre")
