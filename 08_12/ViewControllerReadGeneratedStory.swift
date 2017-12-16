@@ -78,8 +78,16 @@ class ViewControllerReadGeneratedStory: UIViewController {
     }
     
     
-    @IBOutlet weak var bookTitle: UITextField!
+    @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookText: UITextView!
+    
+//    umc
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var bookAuthor: UILabel!
+    @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
+    
+//    end
+    
     var book: Book?
     var isSelected: Bool = false
     
@@ -90,6 +98,27 @@ class ViewControllerReadGeneratedStory: UIViewController {
         bookTitle.text = book?.title
         bookText.text = book?.text
         
+        // bookText height
+        let fixedWidth = bookText.frame.size.width
+        bookText.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        
+        var newFrame = bookText.frame
+        let newSize = bookText.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        
+        
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        
+        bookText.frame = newFrame
+        
+        var heightOfItems = newSize.height + bookTitle.frame.height + bookAuthor.frame.height
+        
+        
+        if heightOfItems <= scrollView.frame.height {
+            scrollViewHeight.constant = scrollView.frame.height
+        } else {
+            scrollViewHeight.constant = heightOfItems
+            // fine ScrollView height
+        }
         
         // Do any additional setup after loading the view.
         
