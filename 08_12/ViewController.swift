@@ -121,6 +121,19 @@ class ViewController: UIViewController {
         favouritesBooks.removeObject(forKey: "myArray")
         // Do any additional setup after loading the view, typically from a nib.
        
+        // check if userdf is true
+        
+        // get the view controller from the initialViewstoryboard
+        
+//        let initialView = UIStoryboard(name: initialView, bundle: nil) .
+//            instantiateViewControllerWithIdentifier("initial")
+//
+//        let iiiii = UIStoryboard(name: <#T##String#>, bundle: <#T##Bundle?#>)
+//
+//
+//        // present the view controller
+//
+//        present(initialView, animated: true)
         
         
        
