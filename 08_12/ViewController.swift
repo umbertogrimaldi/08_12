@@ -66,6 +66,7 @@ class ViewController: UIViewController {
         print (x,y)
         //let generatedBook = Book(image: "mutti.jpg" ,title: x , text: y)
         */
+        
         //for key in savedGenre.dictionaryRepresentation(){
             //print(key)
             //if key.key == "BrunoEUmberto" {print (key);storyGenerated.removeObject(forKey: "myArray")}
@@ -105,7 +106,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController!.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .clear
@@ -119,21 +120,22 @@ class ViewController: UIViewController {
         self.setupButtonFonts()
         
         favouritesBooks.removeObject(forKey: "myArray")
+        
         // Do any additional setup after loading the view, typically from a nib.
        
         // check if userdf is true
         
         // get the view controller from the initialViewstoryboard
+        //dataSource = self
         
-//        let initialView = UIStoryboard(name: initialView, bundle: nil) .
-//            instantiateViewControllerWithIdentifier("initial")
+        let initialView = UIStoryboard(name: "initialView", bundle: nil) . instantiateViewController(withIdentifier: "bruno")
 //
 //        let iiiii = UIStoryboard(name: <#T##String#>, bundle: <#T##Bundle?#>)
 //
 //
 //        // present the view controller
 //
-//        present(initialView, animated: true)
+        present(initialView, animated: true)
         
         
        
