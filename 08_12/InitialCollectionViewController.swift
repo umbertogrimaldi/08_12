@@ -9,7 +9,7 @@
 import UIKit
 
 
-var firstLaunch = UserDefaults.standard
+
 
 class InitialCollectionViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
@@ -22,19 +22,7 @@ class InitialCollectionViewController: UIViewController,UICollectionViewDelegate
         super.viewDidLoad()
         titleLabel.text = "Select one or more genres"
 // Do any additional setup after loading the view.
-        
-//          let bol = firstLaunch.bool(forKey: "isFirstLaunch")
-//
-//              if bol {
-//            
-//                  firstLaunch.set(false, forKey: "isFirstLaunch")
-//
-//              } else {
-//            
-//          }
-//          firstLaunch.set(true, forKey: "isFirstLaunch")
-//          self.genreCollection.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        
+
             genreCollection.delegate = self
             genreCollection.dataSource = self
 

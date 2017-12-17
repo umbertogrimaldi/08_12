@@ -41,7 +41,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7vX-9v-rLj" secondAttribute="height" multiplier="116:33" id="Dxn-Tp-msu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Generate a story" backgroundImage="generateStory_button-1">
                                     <color key="titleColor" red="0.59215686274509804" green="0.40784313725490196" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>

@@ -8,10 +8,14 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
 
     var books: [Book] = []
     let storyGenerated = UserDefaults.standard
+    
+    var firstLaunch = UserDefaults.standard
     
     let bigNumberSize: CGSize = CGSize(width: 112, height: 88)
     let bigNumberPosition: CGPoint = CGPoint(x: 131, y: 20)
@@ -119,22 +123,34 @@ class ViewController: UIViewController {
         self.setupButtonSizes()
         self.setupButtonFonts()
         
+        
         favouritesBooks.removeObject(forKey: "myArray")
         
         // Do any additional setup after loading the view, typically from a nib.
        
         // check if userdf is true
         
-        // get the view controller from the initialViewstoryboard
-        //dataSource = self
+        let bol = firstLaunch.bool(forKey: "isFirstLaunch")
         
-        let initialView = UIStoryboard(name: "initialView", bundle: nil) . instantiateViewController(withIdentifier: "bruno")
-//
-//
-//
-//        // present the view controller
-//
-        present(initialView, animated: true)
+        print(bol)
+        
+        if  bol  {
+        
+            // Don nothing
+            firstLaunch.set(false, forKey: "isFirstLaunch")
+            
+        } else {
+            
+            firstLaunch.set(true, forKey: "isFirstLaunch")
+            // get the view controller from the initialViewstoryboard
+            let initialView = UIStoryboard(name: "initialView", bundle: nil) . instantiateViewController(withIdentifier: "bruno")
+            
+            // present the view controller
+            present(initialView, animated: true)
+            
+        }
+        
+
         
         
        
