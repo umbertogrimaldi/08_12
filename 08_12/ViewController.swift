@@ -34,8 +34,11 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       var books = Book.createBooksArray()
-       let randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
+       
+        // generates a random book from the class/database book
+        
+        var books = Book.createBooksArray()
+        let randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
         let generatedBook = books[randomIndexx]
 
      //   storyGenerated.removeObject(forKey: "MikeyMouse")
@@ -76,6 +79,8 @@ class ViewController: UIViewController {
             //if key.key == "BrunoEUmberto" {print (key);storyGenerated.removeObject(forKey: "myArray")}
         //}
         
+        
+        //  once the button generate story is selected send the sory to the next viewcontroller
         if segue.identifier == "sendRandom" {
                 let destinationVC = segue.destination as! ViewControllerReadGeneratedStory
                 destinationVC.book = generatedBook
@@ -128,7 +133,8 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
        
-        // check if userdf is true
+        
+        // check if user has already launched the initial screen
         
         let bol = firstLaunch.bool(forKey: "isFirstLaunch")
         
@@ -142,17 +148,16 @@ class ViewController: UIViewController {
         } else {
             
             firstLaunch.set(true, forKey: "isFirstLaunch")
+            
             // get the view controller from the initialViewstoryboard
+            
             let initialView = UIStoryboard(name: "initialView", bundle: nil) . instantiateViewController(withIdentifier: "bruno")
             
             // present the view controller
             present(initialView, animated: true)
             
         }
-        
-
-        
-        
+   
        
     }
     

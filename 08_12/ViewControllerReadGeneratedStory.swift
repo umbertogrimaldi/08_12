@@ -10,6 +10,7 @@ import UIKit
 
 var favouritesBooks = UserDefaults.standard
 
+//the UserDefaults.standard takes only string so this function translate an array of books into an array of string
 func createArray(books: [Book]) -> [[String]] {
     var finalArray: [[String]] = []
     for elem in books {
@@ -24,11 +25,16 @@ func createArray(books: [Book]) -> [[String]] {
     return finalArray
 }
 
+
+
+
+
 class ViewControllerReadGeneratedStory: UIViewController {
 
 
-    
+//    change the color of the star button when is selected and the andd the book into the favouritesBooks array
     @IBOutlet weak var favButton: UIButton!
+    
     
     @IBAction func changeBackground(_ sender: Any) {
         
@@ -86,6 +92,8 @@ class ViewControllerReadGeneratedStory: UIViewController {
     
 //    end
     
+    
+    
     var book: Book?
     var isSelected: Bool = false
     
@@ -120,6 +128,7 @@ class ViewControllerReadGeneratedStory: UIViewController {
         // Do any additional setup after loading the view.
         
         favButton.setImage(#imageLiteral(resourceName: "star_notselected"), for: .normal)
+        
         
         tabBarController?.tabBar.isHidden = true
      

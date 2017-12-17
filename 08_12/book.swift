@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Book {
+    
     var image: String
     var title: String
     var text: String
