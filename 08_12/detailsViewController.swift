@@ -57,9 +57,9 @@ class detailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setUI(){
-      let myImagen = UIImage(named: book!.image)
+    func setUI() {
         
+      let myImagen = UIImage(named: book!.image)
         detailText.text = book?.text
         detailImage.image = myImagen
         detailTitle.text = book?.title

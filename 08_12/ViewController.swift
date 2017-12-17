@@ -106,7 +106,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController!.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .clear
@@ -130,7 +130,6 @@ class ViewController: UIViewController {
         
         let initialView = UIStoryboard(name: "initialView", bundle: nil) . instantiateViewController(withIdentifier: "bruno")
 //
-//        let iiiii = UIStoryboard(name: <#T##String#>, bundle: <#T##Bundle?#>)
 //
 //
 //        // present the view controller
