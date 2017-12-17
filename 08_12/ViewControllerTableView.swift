@@ -11,7 +11,7 @@ import UIKit
 func generatesBooksArray(books: [[String]]) -> [Book] {
     var finalArray:  [Book] = []
     for elem in books {
-        let book: Book = Book(image: "",title: "", text: "", author: "", category: "")
+        let book: Book = Book(image: "", title: "", text: "", author: "", category: "")
         book.title = elem[0]
         book.text = elem[1]
         book.image = elem[2]
@@ -24,10 +24,11 @@ func generatesBooksArray(books: [[String]]) -> [Book] {
 }
 
 class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+     var books: [Book] = []
 
     @IBOutlet weak var booksTableView: UITableView!
-
-    var books: [Book] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +36,14 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
         navigationController?.delegate = self
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let bookes = favouritesBooks.array(forKey: "myArray") as? [[String]]
-        {
+        if let bookes = favouritesBooks.array(forKey: "myArray") as? [[String]] {
           books = generatesBooksArray(books: bookes)
           booksTableView.reloadData()
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,9 +51,11 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
         // Dispose of any resources that can be recreated.
     }
 
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (books.count)
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let book = books[indexPath.row]
