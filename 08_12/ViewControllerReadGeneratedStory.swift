@@ -38,6 +38,7 @@ class ViewControllerReadGeneratedStory: UIViewController {
     
     @IBAction func changeBackground(_ sender: Any) {
         
+        imageDownload(bookId: 25 /* for test only, will be "bookId" from the API */)
         if isSelected {
             
             isSelected = false
