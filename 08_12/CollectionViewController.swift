@@ -88,14 +88,18 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "genreCell", for: indexPath) as UICollectionViewCell
             cell.layer.cornerRadius = 6
+        cell.layer.shadowColor = UIColor.gray.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 2)
+        cell.layer.shadowOpacity = 200
+        cell.layer.shadowRadius = 4.0
         
-        
-        let label = cell.viewWithTag(2) as! UILabel
+    let label = cell.viewWithTag(2) as! UILabel
             label.text = genreArray[indexPath.row]
-        let cellImageView = cell.viewWithTag(3) as! UIImageView
-        let itemSize: Double = Double(UIScreen.main.bounds.width/3 - 10)
+    let cellImageView = cell.viewWithTag(3) as! UIImageView
+    let itemSize: Double = Double(UIScreen.main.bounds.width/3 - 10)
             cellImageView.image = UIImage(named: genreArray[indexPath.row])
             cellImageView.frame.size = CGSize(width: itemSize, height: itemSize)
+            cellImageView.layer.cornerRadius = 6
         
         return cell
     }
