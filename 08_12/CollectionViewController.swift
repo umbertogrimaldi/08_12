@@ -12,26 +12,42 @@ import UIKit
 
 let savedGenre = UserDefaults.standard
 
-
 class CollectionViewController: UICollectionViewController {
     
     @IBOutlet var myCollection: UICollectionView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        self.clearsSelectionOnViewWillAppear = false
+     
+            self.clearsSelectionOnViewWillAppear = false
         
-        if let myGenre = savedGenre.object(forKey: "myGenre") as? String{
-            var myRow: Int?
-            for x in 1...genreArray.count{
-                if myGenre == genreArray[x-1]{
+            if let myGenre = savedGenre.object(forKey: "myGenre") as? String {
+                var myRow: Int?
+                for x in 1...genreArray.count {
+                    if myGenre == genreArray[x-1] {
                     myRow = x - 1
                 }
             }
+                
             let indexPath = IndexPath(row: myRow!, section: 0)
             myCollection.selectItem(at: indexPath, animated: true, scrollPosition: .top)
         }
+        
+        
+        
+//        COLLECTION VIEW LAYOUT
+        let itemSize: Double = Double(UIScreen.main.bounds.width/3 - 4)
+        let layout = UICollectionViewFlowLayout()
+        
+        layout.sectionInset = UIEdgeInsetsMake(2, 3, 2, 3)
+        layout.itemSize = CGSize(width: itemSize, height: itemSize)
+        myCollection.collectionViewLayout = layout
+        layout.minimumInteritemSpacing = 3
+        layout.minimumLineSpacing = 3
+        myCollection.backgroundColor = nil
+        
+        
         
         // Register cell classes
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "genreCell")
@@ -58,17 +74,19 @@ class CollectionViewController: UICollectionViewController {
     var genreArray: [String] = ["Romance","Thriller","Fiction","Fantasy","Biography"]
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+
         return 1
     }
             //let buttonTitle = buttonState.titleLabel as! String
             //savedGenre.removeObject(forKey: "myGenre")
             //savedGenre.set(true, forKey: buttonTitle)
     
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+        
         return genreArray.count
     }
+    
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "genreCell", for: indexPath) as UICollectionViewCell
@@ -101,10 +119,10 @@ class CollectionViewController: UICollectionViewController {
             cell!.backgroundColor = .white
 
         let myGenre = (genreArray[indexPath.row])
-        
         savedGenre.set(myGenre, forKey: "myGenre")
         
     }
+    
     
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         
