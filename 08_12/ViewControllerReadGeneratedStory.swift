@@ -83,11 +83,11 @@ class ViewControllerReadGeneratedStory: UIViewController {
     
     
     @IBOutlet weak var bookTitle: UILabel!
+    @IBOutlet weak var bookAuthor: UILabel!
     @IBOutlet weak var bookText: UITextView!
     
 //    umc
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var bookAuthor: UILabel!
     @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
     
 //    end
