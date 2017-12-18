@@ -8,10 +8,14 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
 
     var books: [Book] = []
     let storyGenerated = UserDefaults.standard
+    
+    var firstLaunch = UserDefaults.standard
     
     let bigNumberSize: CGSize = CGSize(width: 112, height: 88)
     let bigNumberPosition: CGPoint = CGPoint(x: 131, y: 20)
@@ -22,6 +26,8 @@ class ViewController: UIViewController {
     var bigNumberIndex = 0
     
     @IBOutlet var numbersSwipeCollection: [UILabel]!
+    
+    
     @IBOutlet var swipeRight: UISwipeGestureRecognizer!
     @IBOutlet var swipeLeft: UISwipeGestureRecognizer!
     
@@ -30,9 +36,15 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       var books = Book.createBooksArray()
-       let randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
+       
+        // generates a random book from the class/database book
+        
+        var books = Book.createBooksArray()
+        let randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
         let generatedBook = books[randomIndexx]
+        
+
+        
 
      //   storyGenerated.removeObject(forKey: "MikeyMouse")
      //   storyGenerated.removeObject(forKey: "MuttiSauce")
@@ -72,6 +84,16 @@ class ViewController: UIViewController {
             //if key.key == "BrunoEUmberto" {print (key);storyGenerated.removeObject(forKey: "myArray")}
         //}
         
+        
+        //  once the button generate story is selected send the sory to the next viewcontroller
+        
+        
+        var bookText = generatedBook.text
+        
+        bookText = textForMinutes(testo: bookText , minuti: myNumbMin)
+        
+        generatedBook.text = bookText
+        
         if segue.identifier == "sendRandom" {
                 let destinationVC = segue.destination as! ViewControllerReadGeneratedStory
                 destinationVC.book = generatedBook
@@ -106,7 +128,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController!.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .clear
@@ -119,25 +141,36 @@ class ViewController: UIViewController {
         self.setupButtonSizes()
         self.setupButtonFonts()
         
+        
         favouritesBooks.removeObject(forKey: "myArray")
         
         // Do any additional setup after loading the view, typically from a nib.
        
-        // check if userdf is true
         
-        // get the view controller from the initialViewstoryboard
-        //dataSource = self
+        // check if user has already launched the initial screen
         
-        let initialView = UIStoryboard(name: "initialView", bundle: nil) . instantiateViewController(withIdentifier: "bruno")
-//
-//        let iiiii = UIStoryboard(name: <#T##String#>, bundle: <#T##Bundle?#>)
-//
-//
-//        // present the view controller
-//
-        present(initialView, animated: true)
+        let bol = firstLaunch.bool(forKey: "isFirstLaunch")
         
+        print(bol)
         
+        if  bol  {
+        
+            // Don nothing
+            firstLaunch.set(false, forKey: "isFirstLaunch")
+            
+        } else {
+            
+            firstLaunch.set(true, forKey: "isFirstLaunch")
+            
+            // get the view controller from the initialViewstoryboard
+            
+            let initialView = UIStoryboard(name: "initialView", bundle: nil) . instantiateViewController(withIdentifier: "bruno")
+            
+            // present the view controller
+            present(initialView, animated: true)
+            
+        }
+   
        
     }
     
@@ -146,18 +179,27 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    var myNumbMin: String = "5"
+    
     @IBAction func swipeTheNumber(_ sender: UISwipeGestureRecognizer) {
         switch sender.direction {
+        
         case  UISwipeGestureRecognizerDirection.left:
+            
             if bigNumberIndex != numbersSwipeCollection.count - 1 {
+                
                 bigNumberIndex += 1
                 self.setupButtonSizes()
                 self.setupButtonFonts()
+                
                 for i in 0 ... self.numbersSwipeCollection.count - 1 {
                     if i == self.bigNumberIndex {
+                        
                         self.numbersSwipeCollection[i].frame.origin.y = self.bigNumberPosition.y
                         UIView.animate(withDuration: 0.3, animations: {
                             self.numbersSwipeCollection[i].frame.origin.x = self.bigNumberPosition.x
+                            
+                            self.myNumbMin = self.numbersSwipeCollection[i].text!
                         })
                     } else {
                         self.numbersSwipeCollection[i].frame.origin.y = self.smallNumberPositionY
@@ -165,7 +207,9 @@ class ViewController: UIViewController {
                             self.numbersSwipeCollection[i].frame.origin.x -= self.smallNumberSize.width
                         })
                     }
+                    
                 }
+                
             }
             
             break
@@ -176,9 +220,12 @@ class ViewController: UIViewController {
                 self.setupButtonFonts()
                 for i in 0 ... self.numbersSwipeCollection.count - 1 {
                     if i == self.bigNumberIndex {
+                        
                         self.numbersSwipeCollection[i].frame.origin.y = self.bigNumberPosition.y
                         UIView.animate(withDuration: 0.3, animations: {
                             self.numbersSwipeCollection[i].frame.origin.x = self.bigNumberPosition.x
+                            
+                            self.myNumbMin = self.numbersSwipeCollection[i].text!
                         })
                     } else {
                         self.numbersSwipeCollection[i].frame.origin.y = self.smallNumberPositionY
@@ -192,6 +239,7 @@ class ViewController: UIViewController {
                             })
                         }
                     }
+                    
                 }
             }
             
@@ -200,7 +248,13 @@ class ViewController: UIViewController {
             print ("other")
             break
         }
+    
+//      print("ok")
+//        print((myNumbMin))
+//      print("ok")
+        
     }
+    
     
     private func setupButtonSizes() {
         for i in 0 ... self.numbersSwipeCollection.count - 1 {
@@ -221,6 +275,25 @@ class ViewController: UIViewController {
             }
         }
     }
+}
+
+// function that takes the words per minutes to read
+
+func textForMinutes(testo: String, minuti: String) -> String {
+    
+    var testoPerMinuti = ""
+    let wordsPerMinute = 10
+    let separatTextInWords = testo.components(separatedBy: " ")
+    
+    let totalWords = (Int(minuti)! * wordsPerMinute) - 1
+    var newTextArray = separatTextInWords[0...separatTextInWords.count - 1 ]
+    if totalWords <= separatTextInWords.count {
+       
+        newTextArray = separatTextInWords[0...totalWords]
+    }
+    testoPerMinuti = newTextArray.joined(separator: " ")
+    
+    return testoPerMinuti
 }
 
 // making the tab bar appear disapperar depending on the viewcontroller

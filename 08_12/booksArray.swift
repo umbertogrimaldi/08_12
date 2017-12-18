@@ -10,6 +10,7 @@
 import Foundation
 import UIKit
 
+//singleton of books array
 
 class booksArray {
     

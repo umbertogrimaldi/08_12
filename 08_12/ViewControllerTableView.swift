@@ -8,6 +8,9 @@
 
 import UIKit
 
+// since the favouritesBooks userDefaults takes only string this function translate an array of string into an array of book
+
+
 func generatesBooksArray(books: [[String]]) -> [Book] {
     var finalArray:  [Book] = []
     for elem in books {
@@ -22,6 +25,8 @@ func generatesBooksArray(books: [[String]]) -> [Book] {
     }
     return finalArray
 }
+
+
 
 class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -40,6 +45,8 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // updates the table view if a genere was cliked before
+        
         if let bookes = favouritesBooks.array(forKey: "myArray") as? [[String]] {
           books = generatesBooksArray(books: bookes)
           booksTableView.reloadData()
@@ -53,11 +60,13 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        populates the table view
         return (books.count)
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        creates the cells that go into the table view
         let book = books[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "myBookCell", for: indexPath) as! TableViewCell
         cell.setBook(book: book)
@@ -66,12 +75,13 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+//        check if the row was selected
         let book = books[indexPath.row]
         
         performSegue(withIdentifier: "toDetails", sender: book)
     }
     
+//    once a row is selected it sends the info of the book to the next view conroller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetails" {
             let destVC = segue.destination as! detailsViewController
@@ -80,11 +90,13 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        allows user to delete rows of the table
         return true
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
+//         remove the row if the user is deleteng
         if editingStyle == .delete{
             
             books.remove(at: indexPath.row)
