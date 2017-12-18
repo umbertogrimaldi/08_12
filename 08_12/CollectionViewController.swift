@@ -93,13 +93,17 @@ class CollectionViewController: UICollectionViewController {
 //        cell.layer.shadowOpacity = 200
 //        cell.layer.shadowRadius = 4.0
 //        cell.clipsToBounds = false
-//        
+//
     let label = cell.viewWithTag(2) as! UILabel
             label.text = genreArray[indexPath.row]
     let cellImageView = cell.viewWithTag(3) as! UIImageView
     let itemSize: Double = Double(UIScreen.main.bounds.width/3 - 10)
             cellImageView.image = UIImage(named: genreArray[indexPath.row])
             cellImageView.frame.size = CGSize(width: itemSize, height: itemSize)
+        
+        if cell.isSelected == true {
+            cellImageView.image = UIImage(named: genreArraySelected[indexPath.row])
+        }
         
         return cell
     }

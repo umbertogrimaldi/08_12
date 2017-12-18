@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans</string>
         </array>
@@ -23,34 +26,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xiK-s9-GCB">
-                                <rect key="frame" x="0.0" y="118" width="375" height="435"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5u-O1-sKT">
+                                <rect key="frame" x="93" y="591" width="188" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="21"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.59215686270000001" green="0.40784313729999999" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeView:" destination="bir-ZO-46J" eventType="touchUpInside" id="3mI-25-OaV"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xiK-s9-GCB">
+                                <rect key="frame" x="0.0" y="106" width="375" height="447"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="447" id="juW-h4-gSi"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bky-iI-OTV">
-                                    <size key="itemSize" width="83" height="76"/>
+                                    <size key="itemSize" width="117" height="117"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ev6-h4-Gvu">
-                                        <rect key="frame" x="0.0" y="0.0" width="83" height="76"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="117" height="117"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="83" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="117" height="117"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSj-Ho-Jsg">
-                                                    <rect key="frame" x="20" y="28" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aKA-SH-Rbq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="117"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="117" id="EuJ-bp-Ozx"/>
+                                                        <constraint firstAttribute="width" constant="117" id="P5c-Gj-ZnC"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXv-Xm-Jof">
+                                                    <rect key="frame" x="0.0" y="81" width="117" height="23"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSj-Ho-Jsg">
+                                                            <rect key="frame" x="0.0" y="1" width="117" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="OXv-Xm-Jof" firstAttribute="leading" secondItem="ev6-h4-Gvu" secondAttribute="leading" id="5Kk-Mh-OaP"/>
+                                            <constraint firstAttribute="bottom" secondItem="OXv-Xm-Jof" secondAttribute="bottom" constant="13" id="5vt-Fy-LvV"/>
+                                            <constraint firstAttribute="trailing" secondItem="aKA-SH-Rbq" secondAttribute="trailing" id="CRq-ew-ZTo"/>
+                                            <constraint firstAttribute="trailing" secondItem="OXv-Xm-Jof" secondAttribute="trailing" id="OTY-PI-HnY"/>
+                                            <constraint firstItem="OXv-Xm-Jof" firstAttribute="top" secondItem="ev6-h4-Gvu" secondAttribute="top" constant="81" id="Osd-9X-jBb"/>
+                                            <constraint firstAttribute="bottom" secondItem="aKA-SH-Rbq" secondAttribute="bottom" id="Rei-19-hIK"/>
+                                            <constraint firstItem="aKA-SH-Rbq" firstAttribute="leading" secondItem="ev6-h4-Gvu" secondAttribute="leading" id="V4Q-zH-syF"/>
+                                            <constraint firstItem="aKA-SH-Rbq" firstAttribute="top" secondItem="ev6-h4-Gvu" secondAttribute="top" id="ztt-26-ICY"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -58,23 +97,25 @@
                                     <outlet property="delegate" destination="bir-ZO-46J" id="s0d-Au-xR7"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5u-O1-sKT">
-                                <rect key="frame" x="164" y="602" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="closeView:" destination="bir-ZO-46J" eventType="touchUpInside" id="3mI-25-OaV"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpH-IA-DRW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm interested in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpH-IA-DRW">
+                                <rect key="frame" x="0.0" y="20" width="375" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="Wqn-TK-YL0"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BpH-IA-DRW" firstAttribute="trailing" secondItem="fXX-gL-HS8" secondAttribute="trailing" id="5i3-bZ-NCS"/>
+                            <constraint firstItem="xiK-s9-GCB" firstAttribute="top" secondItem="BpH-IA-DRW" secondAttribute="bottom" constant="8" id="P66-GN-25R"/>
+                            <constraint firstItem="BpH-IA-DRW" firstAttribute="leading" secondItem="fXX-gL-HS8" secondAttribute="leading" id="cZd-dT-M6C"/>
+                            <constraint firstItem="BpH-IA-DRW" firstAttribute="top" secondItem="fXX-gL-HS8" secondAttribute="top" id="hZu-Lg-ez7"/>
+                            <constraint firstItem="xiK-s9-GCB" firstAttribute="trailing" secondItem="fXX-gL-HS8" secondAttribute="trailing" id="rBL-Hv-I9I"/>
+                            <constraint firstItem="xiK-s9-GCB" firstAttribute="leading" secondItem="fXX-gL-HS8" secondAttribute="leading" id="yjL-aL-1cD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fXX-gL-HS8"/>
                     </view>
                     <navigationItem key="navigationItem" id="2If-IZ-li7"/>
