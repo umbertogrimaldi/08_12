@@ -37,11 +37,11 @@ class TableViewCell: UITableViewCell {
         categoryView.layer.borderColor = UIColor.purple.cgColor
         category.textColor = .purple
         
-        myImage.layer.shadowColor = UIColor.gray.cgColor
-        myImage.layer.shadowOffset = CGSize(width: 0, height: 2)
-        myImage.layer.shadowOpacity = 200
-        myImage.layer.shadowRadius = 4.0
-        myImage.clipsToBounds = false
+//        myImage.layer.shadowColor = UIColor.gray.cgColor
+//        myImage.layer.shadowOffset = CGSize(width: 0, height: 2)
+//        myImage.layer.shadowOpacity = 200
+//        myImage.layer.shadowRadius = 4.0
+//        myImage.clipsToBounds = false
 
         
 //        TITLE MODIFIES

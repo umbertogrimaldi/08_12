@@ -27,6 +27,8 @@ class InitialCollectionViewController: UIViewController,UICollectionViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sleep(2)
  
         genreCollection.delegate = self
         genreCollection.dataSource = self
@@ -42,8 +44,8 @@ class InitialCollectionViewController: UIViewController,UICollectionViewDelegate
         
 //        button editing
         nextButton.layer.cornerRadius = 20.5
-        nextButton.layer.borderWidth = 3
-        nextButton.layer.borderColor = UIColor(red: 0.59, green:0.41, blue:0.82, alpha:1.0).cgColor
+        nextButton.layer.borderWidth = 2
+        nextButton.layer.borderColor = UIColor(red:0.69, green:0.71, blue:0.71, alpha:1.0).cgColor
         
     }
     

@@ -82,10 +82,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        BUTTON EDITING
-//        generateButton.layer.borderWidth = 1
-//        generateButton.layer.borderColor = UIColor(red: 0.59, green:0.41, blue:0.82, alpha:1.0).cgColor
+
         generateButton.layer.cornerRadius = 30
         generateButton.backgroundColor = .white
         generateButton.layer.shadowColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
