@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         
         downloadJSON(category: "Love%20stories")
         
-        sleep(5)
+        sleep(7)
         
         
         let generatedBook = Book(image: "mikey.jpg", title: myTitle , text: myText, author: myAuthor, category: "love")
@@ -66,7 +66,11 @@ class ViewController: UIViewController {
         
         bookText = textForMinutes(testo: bookText , minuti: myNumbMin)
         
+        
         generatedBook.text = bookText
+        
+        print(bookText)
+        
         
         if segue.identifier == "sendRandom" {
                 let destinationVC = segue.destination as! ViewControllerReadGeneratedStory
@@ -98,10 +102,12 @@ class ViewController: UIViewController {
         
         // check if user has already launched the initial screen
         
-        let bol = firstLaunch.bool(forKey: "isFirstLaunch")
-    
-        if  bol  {
         
+        
+        
+        let bol = firstLaunch.bool(forKey: "isFirstLaunch")
+        
+        if  bol  {
             // Don nothing
             firstLaunch.set(false, forKey: "isFirstLaunch")
             
@@ -231,28 +237,20 @@ func textForMinutes(testo: String, minuti: String) -> String {
     var testoPerMinuti = ""
     let wordsPerMinute = 150
     let separatTextInWords = testo.components(separatedBy: " ")
-    var initialIndex = 0
-    
-    
-//    for x in 0...separatTextInWords.count - 1 {
-//
-//        if separatTextInWords[x].capitalized == "***" {
-//
-//            initialIndex = x
-//            print(x)
-//        }
-//
-//    }
-    
     
     let totalWords = (Int(minuti)! * wordsPerMinute) - 1
     
-    var newTextArray = separatTextInWords[initialIndex...initialIndex + separatTextInWords.count - 1 ]
+    var newTextArray = separatTextInWords[0...separatTextInWords.count - 1 ]
+    
     if totalWords <= separatTextInWords.count {
        
         newTextArray = separatTextInWords[0...totalWords]
     }
     testoPerMinuti = newTextArray.joined(separator: " ")
+    
+    print("pippo")
+    print(minuti)
+    print(newTextArray.count)
     
     return testoPerMinuti
 }
@@ -309,7 +307,7 @@ func downloadJSON(category: String) {
                 myTitle = bookTitle
                 myAuthor = bookAuthor
                 
-                print(bookAuthor)
+//                print(bookAuthor)
                 
                 //finalArray.append(bookTitle)
                 //finalArray.append(bookAuthor)
