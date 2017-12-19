@@ -24,6 +24,8 @@
 		63BA7E3E1FDBE183004E247A /* book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA7E3D1FDBE183004E247A /* book.swift */; };
 		63BA7E401FDBE514004E247A /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA7E3F1FDBE514004E247A /* detailsViewController.swift */; };
 		63BA7E421FDDBEF5004E247A /* ViewControllerReadGeneratedStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BA7E411FDDBEF5004E247A /* ViewControllerReadGeneratedStory.swift */; };
+		63BCE61A1FE8063A00A921A7 /* BookIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BCE6191FE8063A00A921A7 /* BookIndex.swift */; };
+		63BCE61C1FE80B8F00A921A7 /* BodyText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BCE61B1FE80B8F00A921A7 /* BodyText.swift */; };
 		83B437FF1FE3EEF500327929 /* CellCollectionView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B437FE1FE3EEF500327929 /* CellCollectionView.storyboard */; };
 		83B438011FE3F0EF00327929 /* NavigationTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83B438001FE3F0EF00327929 /* NavigationTableViewController.storyboard */; };
 		83CD83E71FE431BC00F1269E /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83CD83DD1FE431BB00F1269E /* OpenSans-ExtraBold.ttf */; };
@@ -85,6 +87,8 @@
 		63BA7E3D1FDBE183004E247A /* book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = book.swift; sourceTree = "<group>"; };
 		63BA7E3F1FDBE514004E247A /* detailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
 		63BA7E411FDDBEF5004E247A /* ViewControllerReadGeneratedStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerReadGeneratedStory.swift; sourceTree = "<group>"; };
+		63BCE6191FE8063A00A921A7 /* BookIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookIndex.swift; sourceTree = "<group>"; };
+		63BCE61B1FE80B8F00A921A7 /* BodyText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyText.swift; sourceTree = "<group>"; };
 		83B437FE1FE3EEF500327929 /* CellCollectionView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CellCollectionView.storyboard; sourceTree = "<group>"; };
 		83B438001FE3F0EF00327929 /* NavigationTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationTableViewController.storyboard; sourceTree = "<group>"; };
 		83CD83DD1FE431BB00F1269E /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 				63BA7E3B1FDBDBBB004E247A /* TableViewCell.swift */,
 				63BA7E3D1FDBE183004E247A /* book.swift */,
 				638AA6081FDECDDB002D5D74 /* booksArray.swift */,
+				63BCE61B1FE80B8F00A921A7 /* BodyText.swift */,
+				63BCE6191FE8063A00A921A7 /* BookIndex.swift */,
 				83CD83F11FE431DE00F1269E /* MuseoSans_500.otf */,
 				83CD83F31FE431DE00F1269E /* MuseoSans_700.otf */,
 				83CD83F51FE431DF00F1269E /* MuseoSans_900.otf */,
@@ -361,6 +367,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63BCE61C1FE80B8F00A921A7 /* BodyText.swift in Sources */,
+				63BCE61A1FE8063A00A921A7 /* BookIndex.swift in Sources */,
 				636234EE1FE13A5D00A94A62 /* CollectionViewController.swift in Sources */,
 				638AA6091FDECDDB002D5D74 /* booksArray.swift in Sources */,
 				63BA7E0C1FDBD7C5004E247A /* ViewController.swift in Sources */,
