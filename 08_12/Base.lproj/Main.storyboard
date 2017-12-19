@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cMe-cW-ekm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cMe-cW-ekm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,6 +19,9 @@
         </array>
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans</string>
+        </array>
+        <array key="OpenSans-Semibold.ttf">
+            <string>OpenSans-Semibold</string>
         </array>
     </customFonts>
     <scenes>
@@ -36,20 +39,7 @@
                                     <constraint firstAttribute="width" secondItem="6Rt-xm-6Pn" secondAttribute="height" multiplier="188:261" id="H4f-WW-IDj"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vX-9v-rLj">
-                                <rect key="frame" x="72" y="490" width="232" height="66"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="7vX-9v-rLj" secondAttribute="height" multiplier="116:33" id="Dxn-Tp-msu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Generate a story" backgroundImage="generateStory_button-1">
-                                    <color key="titleColor" red="0.59215686274509804" green="0.40784313725490196" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <segue destination="u6A-pO-ywh" kind="show" identifier="sendRandom" id="206-AB-1YK"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rT-O8-er6">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rT-O8-er6">
                                 <rect key="frame" x="0.0" y="218" width="375" height="128"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nda-AQ-Ow2">
@@ -94,13 +84,20 @@
                                     <outletCollection property="gestureRecognizers" destination="n0V-Tb-SJR" appends="YES" id="1rh-qh-fYg"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1v8-Mg-mdi">
+                                <rect key="frame" x="71" y="490" width="232" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="24"/>
+                                <state key="normal" title="Generate a story">
+                                    <color key="titleColor" red="0.59215686270000001" green="0.40784313729999999" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="u6A-pO-ywh" kind="show" identifier="sendRandom" id="32v-lT-xZF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7vX-9v-rLj" secondAttribute="trailing" constant="71" id="3nY-jX-2Qr"/>
-                            <constraint firstItem="7vX-9v-rLj" firstAttribute="top" secondItem="9rT-O8-er6" secondAttribute="bottom" constant="146" id="8O6-VC-Goi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7vX-9v-rLj" secondAttribute="bottom" constant="62" id="HJM-ED-84F"/>
-                            <constraint firstItem="7vX-9v-rLj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="72" id="XyP-ei-Bic"/>
                             <constraint firstItem="9rT-O8-er6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="152" id="YvO-2w-01p"/>
                             <constraint firstAttribute="trailing" secondItem="9rT-O8-er6" secondAttribute="trailing" constant="-1" id="Z2K-cp-WbJ"/>
                             <constraint firstItem="9rT-O8-er6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="1" id="ZW2-QA-hds"/>
@@ -115,6 +112,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="gj2-0s-T8K"/>
                     <connections>
+                        <outlet property="generateButton" destination="1v8-Mg-mdi" id="OKr-bs-MFX"/>
                         <outlet property="swipeLeft" destination="IkF-SL-zsI" id="myN-MI-OMa"/>
                         <outlet property="swipeRight" destination="n0V-Tb-SJR" id="oX5-5D-T7V"/>
                         <outletCollection property="numbersSwipeCollection" destination="nda-AQ-Ow2" collectionClass="NSMutableArray" id="Rpq-Py-Tob"/>
@@ -302,7 +300,6 @@
     <resources>
         <image name="background_with_text" width="750" height="1040"/>
         <image name="fav_icon_active" width="23" height="23"/>
-        <image name="generateStory_button-1" width="256" height="86"/>
         <image name="genres_icon_active" width="23" height="22"/>
         <image name="home_icon" width="20" height="21"/>
     </resources>

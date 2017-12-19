@@ -14,6 +14,7 @@ var myText = ""
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var generateButton: UIButton!
     
     var books: [Book] = []
     let storyGenerated = UserDefaults.standard
@@ -82,6 +83,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        BUTTON EDITING
+//        generateButton.layer.borderWidth = 1
+//        generateButton.layer.borderColor = UIColor(red: 0.59, green:0.41, blue:0.82, alpha:1.0).cgColor
+        generateButton.layer.cornerRadius = 30
+        generateButton.backgroundColor = .white
+        generateButton.layer.shadowColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
+       generateButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+        generateButton.layer.shadowOpacity = 10
+        generateButton.layer.shadowRadius = 2.0
+        generateButton.clipsToBounds = false
+
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController!.navigationBar.isTranslucent = true
