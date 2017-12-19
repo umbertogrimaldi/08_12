@@ -42,25 +42,25 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         
-        
-        //var books = Book.createBooksArray()
-        //et randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
+        let genre = savedGenre.string(forKey: "myGenre")
+        var books = Book.createBooksArray(genere: genre!)
+        let randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
 
-        //let generatedBook = books[randomIndexx]
+        let generatedBook = books[randomIndexx]
         
-       // let genre = savedGenre.string(forKey: "myGenre")
+       //
         
         
         //let generatedBook = downloadJSON(category: genre)
         
         //let generatedBookArray = downloadJSON(category: "Love%20stories")
         
-        downloadJSON(category: "Love%20stories")
+//        downloadJSON(category: "Love%20stories")
         
 //        sleep(7)
         
         
-        let generatedBook = Book(image: "mikey.jpg", title: myTitle , text: myText, author: myAuthor, category: "love")
+//        let generatedBook = Book(image: "mikey.jpg", title: myTitle , text: myText, author: myAuthor, category: "love")
         
         
         var bookText = generatedBook.text
