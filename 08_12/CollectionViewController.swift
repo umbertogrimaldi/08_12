@@ -47,8 +47,8 @@ class CollectionViewController: UICollectionViewController {
         myCollection.collectionViewLayout = layout
         layout.minimumInteritemSpacing = 3
         layout.minimumLineSpacing = 7
-//        myCollection.backgroundColor = nil
-        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "genreCell")
+
+//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "genreCell")
     }
     
 
@@ -104,7 +104,6 @@ class CollectionViewController: UICollectionViewController {
         if cell.isSelected == true {
             cellImageView.image = UIImage(named: genreArraySelected[indexPath.row])
         }
-        
         return cell
     }
 
@@ -125,9 +124,10 @@ class CollectionViewController: UICollectionViewController {
             cell!.backgroundColor = .white
 
         let myGenre = (genreArray[indexPath.row])
-        savedGenre.set(myGenre, forKey: "myGenre")
+            savedGenre.set(myGenre, forKey: "myGenre")
+        
         let cellImageView = cell?.viewWithTag(3) as! UIImageView
-        cellImageView.image = UIImage(named: genreArraySelected[indexPath.row])
+            cellImageView.image = UIImage(named: genreArraySelected[indexPath.row])
         
     }
     
@@ -135,11 +135,11 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         
         let cell = collectionView.cellForItem(at: indexPath)
-//            cell!.backgroundColor = .blue
+
             savedGenre.removeObject(forKey: "myGenre")
+        
         let cellImageView = cell?.viewWithTag(3) as! UIImageView
-        cellImageView.image = UIImage(named: genreArray[indexPath.row])
-     
+            cellImageView.image = UIImage(named: genreArray[indexPath.row])
 
     }
  

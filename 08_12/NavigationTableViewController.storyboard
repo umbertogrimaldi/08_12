@@ -44,7 +44,7 @@
                                                         <constraint firstAttribute="width" secondItem="vbh-aA-EOz" secondAttribute="height" multiplier="23:35" id="yT4-Pk-cBS"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54h-gn-1AW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54h-gn-1AW">
                                                     <rect key="frame" x="131" y="19" width="244" height="35.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="26"/>
                                                     <nil key="textColor"/>
@@ -146,7 +146,7 @@
                                     <constraint firstAttribute="height" constant="172" id="f9O-fj-FSU"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydW-Id-tk6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ydW-Id-tk6">
                                 <rect key="frame" x="136" y="8" width="223" height="36"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="26"/>
                                 <nil key="textColor"/>

@@ -41,7 +41,6 @@ class InitialCollectionViewController: UIViewController,UICollectionViewDelegate
         layout.minimumLineSpacing = 7
         
 //        button editing
-        
         nextButton.layer.cornerRadius = 20.5
         nextButton.layer.borderWidth = 3
         nextButton.layer.borderColor = UIColor(red: 0.59, green:0.41, blue:0.82, alpha:1.0).cgColor
@@ -49,11 +48,9 @@ class InitialCollectionViewController: UIViewController,UICollectionViewDelegate
     }
     
     @IBAction func closeView(_ sender: Any) {
-        
 //        once the next button its pressed the view controller disappears
-        dismiss(animated: true) {
-
-        }
+        dismiss(animated: true) 
+        
     }
 
 
