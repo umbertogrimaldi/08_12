@@ -156,7 +156,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-JM-Old">
-                                                <rect key="frame" x="16" y="8" width="311" height="46.5"/>
+                                                <rect key="frame" x="16" y="8" width="344" height="46.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="34"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -180,7 +180,7 @@
                                         <constraints>
                                             <constraint firstItem="3f8-KN-cWR" firstAttribute="leading" secondItem="ICZ-5e-B70" secondAttribute="leading" constant="16" id="1jh-Zu-jvh"/>
                                             <constraint firstAttribute="bottom" secondItem="nfx-i5-icw" secondAttribute="bottom" constant="32" id="25I-4D-i1J"/>
-                                            <constraint firstAttribute="trailing" secondItem="cWc-JM-Old" secondAttribute="trailing" constant="48" id="5t1-Xo-07B"/>
+                                            <constraint firstAttribute="trailing" secondItem="cWc-JM-Old" secondAttribute="trailing" constant="15" id="5t1-Xo-07B"/>
                                             <constraint firstItem="nfx-i5-icw" firstAttribute="leading" secondItem="ICZ-5e-B70" secondAttribute="leading" constant="16" id="9sM-YR-KKg"/>
                                             <constraint firstAttribute="height" constant="1000" id="Nd6-HG-9cY"/>
                                             <constraint firstItem="cWc-JM-Old" firstAttribute="top" secondItem="ICZ-5e-B70" secondAttribute="top" constant="8" id="NdK-S1-AyW"/>
