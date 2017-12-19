@@ -36,6 +36,8 @@ class ViewControllerReadGeneratedStory: UIViewController {
     
     @IBAction func changeBackground(_ sender: Any) {
         
+//        imageDownload(bookId: 25 /* for test only, will be "bookId" from the API */)
+        
         if isSelected {
             
             isSelected = false
@@ -81,11 +83,11 @@ class ViewControllerReadGeneratedStory: UIViewController {
     
     
     @IBOutlet weak var bookTitle: UILabel!
+    @IBOutlet weak var bookAuthor: UILabel!
     @IBOutlet weak var bookText: UITextView!
     
 //    umc
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var bookAuthor: UILabel!
     @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
     
 //    end

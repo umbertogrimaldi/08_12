@@ -12,20 +12,25 @@ import UIKit
 
 let savedGenre = UserDefaults.standard
 
-
 class CollectionViewController: UICollectionViewController {
     
     @IBOutlet var myCollection: UICollectionView!
     
+    
+    var genreArray: [String] = ["Adventure Fiction", "Biography", "Children's book", "Detective", "Drama", "Fantasy", "Horror", "Novel", "Philosophy", "Political Fiction", "Romance", "Southern Gothic"]
+    
+    var genreArraySelected: [String] = ["adventure fiction", "biography", "children's book", "detective", "drama", "fantasy", "horror", "novel", "philosophy", "political fiction", "romance", "southern gothic"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        self.clearsSelectionOnViewWillAppear = false
+     
+            self.clearsSelectionOnViewWillAppear = false
         
-        if let myGenre = savedGenre.object(forKey: "myGenre") as? String{
-            var myRow: Int?
-            for x in 1...genreArray.count{
-                if myGenre == genreArray[x-1]{
+            if let myGenre = savedGenre.object(forKey: "myGenre") as? String {
+                var myRow: Int?
+                for x in 1...genreArray.count {
+                    if myGenre == genreArray[x-1] {
                     myRow = x - 1
                 }
             }
@@ -33,9 +38,17 @@ class CollectionViewController: UICollectionViewController {
             myCollection.selectItem(at: indexPath, animated: true, scrollPosition: .top)
         }
         
-        // Register cell classes
+//        COLLECTION VIEW LAYOUT
+        let itemSize: Double = Double(UIScreen.main.bounds.width/3 - 10)
+        let layout = UICollectionViewFlowLayout()
+        
+        layout.sectionInset = UIEdgeInsetsMake(10, 7, 7, 7)
+        layout.itemSize = CGSize(width: itemSize, height: itemSize)
+        myCollection.collectionViewLayout = layout
+        layout.minimumInteritemSpacing = 3
+        layout.minimumLineSpacing = 7
+//        myCollection.backgroundColor = nil
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "genreCell")
-        // Do any additional setup after loading the view.
     }
     
 
@@ -55,30 +68,41 @@ class CollectionViewController: UICollectionViewController {
     */
 
     // MARK: UICollectionViewDataSource
-    var genreArray: [String] = ["Romance","Thriller","Fiction","Fantasy","Biography"]
+    
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+
         return 1
     }
             //let buttonTitle = buttonState.titleLabel as! String
             //savedGenre.removeObject(forKey: "myGenre")
             //savedGenre.set(true, forKey: buttonTitle)
     
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+        
         return genreArray.count
     }
+    
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "genreCell", for: indexPath) as UICollectionViewCell
-        
-        let label = cell.viewWithTag(2) as! UILabel
-        
-        label.text = genreArray[indexPath.row]
+            cell.layer.cornerRadius = 6
+//        cell.layer.shadowColor = UIColor.gray.cgColor
+//        cell.layer.shadowOffset = CGSize(width: 0, height: 2)
+//        cell.layer.shadowOpacity = 200
+//        cell.layer.shadowRadius = 4.0
+//        cell.clipsToBounds = false
+//
+    let label = cell.viewWithTag(2) as! UILabel
+            label.text = genreArray[indexPath.row]
+    let cellImageView = cell.viewWithTag(3) as! UIImageView
+    let itemSize: Double = Double(UIScreen.main.bounds.width/3 - 10)
+            cellImageView.image = UIImage(named: genreArray[indexPath.row])
+            cellImageView.frame.size = CGSize(width: itemSize, height: itemSize)
         
         if cell.isSelected == true {
-            cell.backgroundColor = .white
+            cellImageView.image = UIImage(named: genreArraySelected[indexPath.row])
         }
         
         return cell
@@ -101,16 +125,22 @@ class CollectionViewController: UICollectionViewController {
             cell!.backgroundColor = .white
 
         let myGenre = (genreArray[indexPath.row])
-        
         savedGenre.set(myGenre, forKey: "myGenre")
+        let cellImageView = cell?.viewWithTag(3) as! UIImageView
+        cellImageView.image = UIImage(named: genreArraySelected[indexPath.row])
         
     }
+    
     
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         
         let cell = collectionView.cellForItem(at: indexPath)
-            cell!.backgroundColor = .blue
+//            cell!.backgroundColor = .blue
             savedGenre.removeObject(forKey: "myGenre")
+        let cellImageView = cell?.viewWithTag(3) as! UIImageView
+        cellImageView.image = UIImage(named: genreArray[indexPath.row])
+     
+
     }
  
 
