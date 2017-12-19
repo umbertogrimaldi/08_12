@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         generateButton.layer.cornerRadius = 30
         generateButton.backgroundColor = .white
         generateButton.layer.shadowColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
-       generateButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+        generateButton.layer.shadowOffset = CGSize(width: 3, height: 3)
         generateButton.layer.shadowOpacity = 10
         generateButton.layer.shadowRadius = 2.0
         generateButton.clipsToBounds = false
@@ -100,6 +100,8 @@ class ViewController: UIViewController {
         
         swipeLeft.direction = .left
         swipeRight.direction = .right
+        
+//        for the numbers in the time section
         
         self.setupButtonSizes()
         self.setupButtonFonts()
