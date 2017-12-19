@@ -7,11 +7,14 @@
 //
 
 import UIKit
-
+var myAuthor = ""
+var myTitle = ""
+var myText = ""
 
 
 class ViewController: UIViewController {
 
+    
     var books: [Book] = []
     let storyGenerated = UserDefaults.standard
     
@@ -37,62 +40,37 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
-        // generates a random book from the class/database book
         
-        var books = Book.createBooksArray()
-        let randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
-        let generatedBook = books[randomIndexx]
         
+        //var books = Book.createBooksArray()
+        //et randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
 
+        //let generatedBook = books[randomIndexx]
         
-
-     //   storyGenerated.removeObject(forKey: "MikeyMouse")
-     //   storyGenerated.removeObject(forKey: "MuttiSauce")
-     //   storyGenerated.removeObject(forKey: "BrunoEUmberto")
-     //    while isKeyPresentInUserDefaults(key: generatedBook.title) {
-     //       var randomIndex = Int(arc4random_uniform(UInt32(books.count)))
-     //       var generatedBook = books[randomIndex]
-     //   }
-     //   storyGenerated.set(true, forKey: generatedBook.title)
-        
-       /*
-        let data = request(categoria: "Love")
-        let json = parseData(data!)
-        // print(json)
-        // OpenLibrary
-        // let categoriaArray: NSArray = (json!["works"] as? NSArray)!
-        let categoriaArray: NSArray = (json!["texts"] as? NSArray)!
-        // umc 12 dec. 23:48 book chosen randomly
-        // https://stackoverflow.com/questions/24003191/pick-a-random-element-from-an-array
-        let randomIndex = Int(arc4random_uniform(UInt32(categoriaArray.count)))
-        let categoria: NSDictionary = categoriaArray[randomIndex] as! NSDictionary
-        // con OpenLibrary
-        // print(categoria["cover_id"])
-        let textId = categoria["text_id"]
-        print(textId)
-        // umc 12 dec. 23:48 added two constants author and title from categoria["author"] and categoria["title"]
-        let author = categoria["author"]!
-        let titles = categoria["title"]!
-        let x =  String(describing: titles)
-        let y =  String(describing: author)
-        print (x,y)
-        //let generatedBook = Book(image: "mutti.jpg" ,title: x , text: y)
-        */
-        
-        //for key in savedGenre.dictionaryRepresentation(){
-            //print(key)
-            //if key.key == "BrunoEUmberto" {print (key);storyGenerated.removeObject(forKey: "myArray")}
-        //}
+       // let genre = savedGenre.string(forKey: "myGenre")
         
         
-        //  once the button generate story is selected send the sory to the next viewcontroller
+        //let generatedBook = downloadJSON(category: genre)
+        
+        //let generatedBookArray = downloadJSON(category: "Love%20stories")
+        
+        downloadJSON(category: "Love%20stories")
+        
+        sleep(7)
+        
+        
+        let generatedBook = Book(image: "mikey.jpg", title: myTitle , text: myText, author: myAuthor, category: "love")
         
         
         var bookText = generatedBook.text
         
         bookText = textForMinutes(testo: bookText , minuti: myNumbMin)
         
+        
         generatedBook.text = bookText
+        
+        print(bookText)
+        
         
         if segue.identifier == "sendRandom" {
                 let destinationVC = segue.destination as! ViewControllerReadGeneratedStory
@@ -100,31 +78,7 @@ class ViewController: UIViewController {
             }
     }
     
-    func request(categoria: String) -> Data? {
-        guard let url = URL(string: "https://gutenbergapi.org/search/subject%20eq%20\(categoria)?include=author,title,language")
-            else {
-                return nil
-        }
-        guard let data = try? Data(contentsOf: url)
-            else {
-                print("error")
-                return nil
-        }
-        return data
-    }
-    func parseData(_ data: Data) -> NSDictionary? {
-        
-        do {
-            let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)
-            return (json as? NSDictionary)
-        } catch _ {
-            print("[ERROR] An error has happened with parsing of json data")
-            return nil
-        }
-    }
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -141,7 +95,6 @@ class ViewController: UIViewController {
         self.setupButtonSizes()
         self.setupButtonFonts()
         
-        
         favouritesBooks.removeObject(forKey: "myArray")
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -149,12 +102,12 @@ class ViewController: UIViewController {
         
         // check if user has already launched the initial screen
         
+        
+        
+        
         let bol = firstLaunch.bool(forKey: "isFirstLaunch")
         
-        print(bol)
-        
         if  bol  {
-        
             // Don nothing
             firstLaunch.set(false, forKey: "isFirstLaunch")
             
@@ -170,14 +123,14 @@ class ViewController: UIViewController {
             present(initialView, animated: true)
             
         }
-   
-       
+ 
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     var myNumbMin: String = "5"
     
@@ -282,16 +235,22 @@ class ViewController: UIViewController {
 func textForMinutes(testo: String, minuti: String) -> String {
     
     var testoPerMinuti = ""
-    let wordsPerMinute = 10
+    let wordsPerMinute = 150
     let separatTextInWords = testo.components(separatedBy: " ")
     
     let totalWords = (Int(minuti)! * wordsPerMinute) - 1
+    
     var newTextArray = separatTextInWords[0...separatTextInWords.count - 1 ]
+    
     if totalWords <= separatTextInWords.count {
        
         newTextArray = separatTextInWords[0...totalWords]
     }
     testoPerMinuti = newTextArray.joined(separator: " ")
+    
+    print("pippo")
+    print(minuti)
+    print(newTextArray.count)
     
     return testoPerMinuti
 }
@@ -312,3 +271,82 @@ extension ViewController: UINavigationControllerDelegate {
         
     }
 }
+
+
+///////////////////////////////////////////////// UMBERTO CODE ////////////////
+
+func downloadJSON(category: String) {
+    
+//    var finalArray: [String] = []
+    
+    //        1. Set the url to call API from gutenbergapi.org. Then search books with: subject(the category) equal to "something" (be carefull, add %20 instaed of spaces e.g. use "Love%20stories", not "Love stories"), English language only and include title and author in the json data.
+    var bookId = 0
+    let jsonUrlString = "https://gutenbergapi.org/search/subject%20eq%20\(category)%20and%20language%20eq%20en?include=title,author"
+    let url = URL(string: jsonUrlString)
+    
+    //        2. From the url, take the data (JSON) as "data", the response (200, 400, 404, 500...) as "response" and error as "error".
+    URLSession.shared.dataTask(with: url!) { (data, response, error) in
+        guard let data = data else { return }
+        if error == nil {
+            do {
+                //                    3. Decode the JSON data with the struct made, in this case, in the "BookIndex.swift" file. Then count how many books are in the index and choose one randomly.
+                let booksIndex = try JSONDecoder().decode(BooksIndex.self, from: data)
+                let booksCount = booksIndex.texts.count
+                let randomBook = Int(arc4random_uniform(UInt32(booksCount)))
+                let choosenBook = booksIndex.texts[randomBook]
+                //                    4. Assign constants to extrapolated data, like the title, the author and the id of the randomly choosen book. Author and Title will be displayed in the book view, the id is used to take the text of the book.
+                let bookTitle = choosenBook.title.joined(separator: " ")
+                bookId = choosenBook.id
+                let bookAuthor = choosenBook.author.joined(separator: " ")
+
+//                self.bookId = bookId
+//                self.bookTitle = bookTitle
+//                self.bookAuthor = bookAuthor
+                
+                
+                myTitle = bookTitle
+                myAuthor = bookAuthor
+                
+//                print(bookAuthor)
+                
+                //finalArray.append(bookTitle)
+                //finalArray.append(bookAuthor)
+                //print("pippo")
+                //print(finalArray)
+                
+                
+                
+                let jsonText = "https://gutenbergapi.org/texts/\(bookId)/body"
+                let urlText = URL(string: jsonText)
+                
+                URLSession.shared.dataTask(with: urlText!) { (data, response, error) in
+                    guard let data = data else { return }
+                    if error == nil {
+                        do {
+                            let bookText = try JSONDecoder().decode(BodyText.self, from: data)
+//
+//                            finalArray.append(bookText.body)
+//                            print("pippo2")
+//                            print(finalArray)
+                            myText = bookText.body
+                            
+                        } catch {
+                            print("BookText – JSON Error")
+                        }
+                    } else { print("BookText – Response: \(response) – Error: \(error).") }
+                    }.resume()
+                
+            } catch {
+                print("JSON Error")
+            }
+        } else { print("Response: \(response) – Error: \(error).")
+            
+            //    return finalArray
+        }
+        }.resume()
+    
+
+}
+
+
+

@@ -16,7 +16,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var categoryView: UIView!
     @IBOutlet weak var authorLabel: UILabel!
     
-    
+
     func setBook(book : Book)  {
         
          let myImagen = UIImage(named: book.image)

@@ -27,12 +27,10 @@ func createArray(books: [Book]) -> [[String]] {
 
 
 
-
-
 class ViewControllerReadGeneratedStory: UIViewController {
 
 
-//    change the color of the star button when is selected and the andd the book into the favouritesBooks array
+//  change the color of the star button when is selected and the andd the book into the favouritesBooks array
     @IBOutlet weak var favButton: UIButton!
     
     
@@ -43,9 +41,9 @@ class ViewControllerReadGeneratedStory: UIViewController {
         if isSelected {
             
             isSelected = false
-            favButton.setImage(#imageLiteral(resourceName: "star_notselected"), for: .normal)
-
             
+            favButton.setImage(#imageLiteral(resourceName: "star_notselected"), for: .normal)
+    
             var indexToRemove: Int?
             
             for x in 1...booksArray.shared.books.count {
@@ -105,6 +103,7 @@ class ViewControllerReadGeneratedStory: UIViewController {
         super.viewDidLoad()
         bookTitle.text = book?.title
         bookText.text = book?.text
+        bookAuthor.text = book?.author
         
         // bookText height
         let fixedWidth = bookText.frame.size.width
@@ -131,11 +130,9 @@ class ViewControllerReadGeneratedStory: UIViewController {
         
         favButton.setImage(#imageLiteral(resourceName: "star_notselected"), for: .normal)
         
-        
         tabBarController?.tabBar.isHidden = true
      
 
-    
     }
 
 
