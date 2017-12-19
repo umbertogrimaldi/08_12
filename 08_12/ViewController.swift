@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         
         downloadJSON(category: "Love%20stories")
         
-        sleep(7)
+//        sleep(7)
         
         
         let generatedBook = Book(image: "mikey.jpg", title: myTitle , text: myText, author: myAuthor, category: "love")
