@@ -54,20 +54,14 @@ class ViewController: UIViewController {
  
                 generatedBook.text = bookText
       
-        
-        
-        
-        
+
         if segue.identifier == "sendRandom" {
             
             let destination = segue.destination as! ViewControllerReadGeneratedStory
             
             destination.book = generatedBook
             
-            
-            
-            
-            
+     
 //            func downloadJSON(category: String) {
 //            let category = "Love%20stories"
 //                print("start")
@@ -131,16 +125,9 @@ class ViewController: UIViewController {
 //
 //            downloadJSON(category: category)
         }
-
-
-        
     }
     
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -171,18 +158,12 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         // check if user has already launched the initial screen
-        
-        
         let bol = firstLaunch.bool(forKey: "isFirstLaunch")
-        
         if  bol  {
             // Don nothing
             firstLaunch.set(false, forKey: "isFirstLaunch")
-            
         } else {
-            
             firstLaunch.set(true, forKey: "isFirstLaunch")
-            
             // get the view controller from the initialViewstoryboard
             
             let initialView = UIStoryboard(name: "initialView", bundle: nil) . instantiateViewController(withIdentifier: "bruno")

@@ -8,9 +8,6 @@
 
 import UIKit
 
-
-
-
 class InitialCollectionViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
 //    path to images
