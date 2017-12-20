@@ -31,37 +31,23 @@ class ViewController: UIViewController {
     
     @IBOutlet var numbersSwipeCollection: [UILabel]!
     
-    
     @IBOutlet var swipeRight: UISwipeGestureRecognizer!
     @IBOutlet var swipeLeft: UISwipeGestureRecognizer!
     
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
-        let genre = savedGenre.string(forKey: "myGenre")
-        
-                var books = Book.createBooksArray(genere: genre!)
-        
-                let randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
-        
-                let generatedBook = books[randomIndexx]
-        
-                var bookText = generatedBook.text
 
+        let genre = savedGenre.string(forKey: "myGenre")
+                var books = Book.createBooksArray(genere: genre!)
+                let randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
+                let generatedBook = books[randomIndexx]
+                var bookText = generatedBook.text
                 bookText = textForMinutes(testo: bookText , minuti: myNumbMin)
- 
                 generatedBook.text = bookText
       
-
         if segue.identifier == "sendRandom" {
-            
             let destination = segue.destination as! ViewControllerReadGeneratedStory
-            
             destination.book = generatedBook
-            
-     
+        
 //            func downloadJSON(category: String) {
 //            let category = "Love%20stories"
 //                print("start")
@@ -127,7 +113,6 @@ class ViewController: UIViewController {
         }
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -149,7 +134,7 @@ class ViewController: UIViewController {
         swipeLeft.direction = .left
         swipeRight.direction = .right
         
-        //        for the numbers in the time section
+        //for the numbers in the time section
         
         self.setupButtonSizes()
         self.setupButtonFonts()
@@ -158,6 +143,7 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         // check if user has already launched the initial screen
+        
         let bol = firstLaunch.bool(forKey: "isFirstLaunch")
         if  bol  {
             // Don nothing
@@ -170,16 +156,13 @@ class ViewController: UIViewController {
             
             // present the view controller
             present(initialView, animated: true)
-            
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     var myNumbMin: String = "5"
     
@@ -251,12 +234,7 @@ class ViewController: UIViewController {
             break
         }
         
-        //      print("ok")
-        //        print((myNumbMin))
-        //      print("ok")
-        
     }
-    
     
     private func setupButtonSizes() {
         for i in 0 ... self.numbersSwipeCollection.count - 1 {
