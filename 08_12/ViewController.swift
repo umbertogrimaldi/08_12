@@ -42,91 +42,98 @@ class ViewController: UIViewController {
         
         let genre = savedGenre.string(forKey: "myGenre")
         
-        //        var books = Book.createBooksArray(genere: genre!)
-        //        let randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
-        //
-        //        let generatedBook = books[randomIndexx]
-        //let generatedBook = downloadJSON(category: genre)
-        //let generatedBookArray = downloadJSON(category: "Love%20stories")
-        //        downloadJSON(category: "Love%20stories")
-        //        sleep(7)
-        //        let generatedBook = Book(image: "mikey.jpg", title: myTitle , text: myText, author: myAuthor, category: "love")
-        //        var bookText = generatedBook.text
-        //
-        //        bookText = textForMinutes(testo: bookText , minuti: myNumbMin)
-        //
-        //
-        //        generatedBook.text = bookText
-        //
+                var books = Book.createBooksArray(genere: genre!)
         
-        let category = "Love%20stories"
+                let randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
+        
+                let generatedBook = books[randomIndexx]
+        
+                var bookText = generatedBook.text
+
+                bookText = textForMinutes(testo: bookText , minuti: myNumbMin)
+ 
+                generatedBook.text = bookText
+      
+        
+        
         
         
         if segue.identifier == "sendRandom" {
             
             let destination = segue.destination as! ViewControllerReadGeneratedStory
             
-            func downloadJSON(category: String) {
-                print("start")
-                //        1. Set the url to call API from gutenbergapi.org. Then search books with: subject(the category) equal to "something" (be carefull, add %20 instaed of spaces e.g. use "Love%20stories", not "Love stories"), English language only and include title and author in the json data.
-                let jsonUrlString = "https://gutenbergapi.org/search/subject%20eq%20\(category)%20and%20language%20eq%20en?include=title,author"
-                let url = URL(string: jsonUrlString)
-                URLSession.shared.dataTask(with: url!) { (data, response, error) in
-                    guard let data = data else { return }
-                    if error == nil {
-                        do {
-                            let booksIndex = try JSONDecoder().decode(BooksIndex.self, from: data)
-                            let booksCount = booksIndex.texts.count
-                            let randomBook = Int(arc4random_uniform(UInt32(booksCount)))
-                            let choosenBook = booksIndex.texts[randomBook]
-                            let bookTitle = choosenBook.title.joined(separator: " ")
-                            let bookId = choosenBook.id
-                            let bookAuthor = choosenBook.author.joined(separator: " ")
-                            let jsonText = "https://gutenbergapi.org/texts/\(bookId)/body"
-                            let urlText = URL(string: jsonText)
-                            URLSession.shared.dataTask(with: urlText!) { (data, response, error) in
-                                guard let data = data else { return }
-                                if error == nil {
-                                    do {
-                                        let bookText = try JSONDecoder().decode(BodyText.self, from: data)
-                                        let fullBookText = bookText.body
-                                        if fullBookText.contains("CHAPTER I")
-                                        {print("ok")
-                                            let result = fullBookText.range(of: "CHAPTER I", options: NSString.CompareOptions.literal, range: fullBookText.startIndex..<fullBookText.endIndex, locale: nil)
-                                            if let range = result {
-                                                let start = range.lowerBound
-                                                
-                                                DispatchQueue.main.async { // Correct
-                                                    
-                                                    destination.bookText.text = textForMinutes(testo: String(fullBookText[start..<fullBookText.endIndex]), minuti: self.myNumbMin)
-                                                    //                                                    destination.bookText.text = String(fullBookText[start..<fullBookText.endIndex])
-                                                    destination.bookText.isHidden = false
-                                                    destination.bookAuthor.text = bookAuthor
-                                                    destination.bookAuthor.isHidden = false
-                                                    destination.bookTitle.text = bookTitle
-                                                    destination.bookTitle.isHidden = false
-                                                    
-                                                    
-                                                    activityIndicator.stopAnimating()
-                                                }
-                                            }
-                                        } else {
-                                            downloadJSON(category: category)
-                                        }
-                                    } catch {
-                                        print("BookText – JSON Error")
-                                    }
-                                } else { print("BookText – Response: \(String(describing: response)) – Error: \(String(describing: error)).") }
-                                }.resume()
-                        } catch {
-                            print("JSON Error")
-                        }
-                    } else { print("Response: \(String(describing: response)) – Error: \(String(describing: error)).") }
-                    }.resume()
-            }
+            destination.book = generatedBook
             
-            downloadJSON(category: category)
+            
+            
+            
+            
+//            func downloadJSON(category: String) {
+//            let category = "Love%20stories"
+//                print("start")
+//                //        1. Set the url to call API from gutenbergapi.org. Then search books with: subject(the category) equal to "something" (be carefull, add %20 instaed of spaces e.g. use "Love%20stories", not "Love stories"), English language only and include title and author in the json data.
+//                let jsonUrlString = "https://gutenbergapi.org/search/subject%20eq%20\(category)%20and%20language%20eq%20en?include=title,author"
+//                let url = URL(string: jsonUrlString)
+//                URLSession.shared.dataTask(with: url!) { (data, response, error) in
+//                    guard let data = data else { return }
+//                    if error == nil {
+//                        do {
+//                            let booksIndex = try JSONDecoder().decode(BooksIndex.self, from: data)
+//                            let booksCount = booksIndex.texts.count
+//                            let randomBook = Int(arc4random_uniform(UInt32(booksCount)))
+//                            let choosenBook = booksIndex.texts[randomBook]
+//                            let bookTitle = choosenBook.title.joined(separator: " ")
+//                            let bookId = choosenBook.id
+//                            let bookAuthor = choosenBook.author.joined(separator: " ")
+//                            let jsonText = "https://gutenbergapi.org/texts/\(bookId)/body"
+//                            let urlText = URL(string: jsonText)
+//                            URLSession.shared.dataTask(with: urlText!) { (data, response, error) in
+//                                guard let data = data else { return }
+//                                if error == nil {
+//                                    do {
+//                                        let bookText = try JSONDecoder().decode(BodyText.self, from: data)
+//                                        let fullBookText = bookText.body
+//                                        if fullBookText.contains("CHAPTER I")
+//                                        {print("ok")
+//                                            let result = fullBookText.range(of: "CHAPTER I", options: NSString.CompareOptions.literal, range: fullBookText.startIndex..<fullBookText.endIndex, locale: nil)
+//                                            if let range = result {
+//                                                let start = range.lowerBound
+//
+//                                                DispatchQueue.main.async { // Correct
+//
+//                                                    destination.bookText.text = textForMinutes(testo: String(fullBookText[start..<fullBookText.endIndex]), minuti: self.myNumbMin)
+//                                                    //                                                    destination.bookText.text = String(fullBookText[start..<fullBookText.endIndex])
+//                                                    destination.bookText.isHidden = false
+//                                                    destination.bookAuthor.text = bookAuthor
+//                                                    destination.bookAuthor.isHidden = false
+//                                                    destination.bookTitle.text = bookTitle
+//                                                    destination.bookTitle.isHidden = false
+//
+//
+//                                                    activityIndicator.stopAnimating()
+//                                                }
+//                                            }
+//                                        } else {
+//                                            downloadJSON(category: category)
+//                                        }
+//                                    } catch {
+//                                        print("BookText – JSON Error")
+//
+//                                    }
+//                                } else { print("BookText – Response: \(String(describing: response)) – Error: \(String(describing: error)).") }
+//                                }.resume()
+//                        } catch {
+//                            print("JSON Error")
+//                        }
+//                    } else { print("Response: \(String(describing: response)) – Error: \(String(describing: error)).") }
+//                    }.resume()
+//            }
+//
+//            downloadJSON(category: category)
         }
+
+
+        
     }
     
     
