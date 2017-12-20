@@ -39,6 +39,7 @@ class ViewControllerTableView: UIViewController,UITableViewDelegate,UITableViewD
         super.viewDidLoad()
 
         navigationController?.delegate = self
+        navigationController?.navigationBar.backgroundColor = .white
     }
     
     
