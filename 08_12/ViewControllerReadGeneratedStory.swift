@@ -39,7 +39,7 @@ class ViewControllerReadGeneratedStory: UIViewController {
     
     @IBAction func changeBackground(_ sender: Any) {
         
-        book = Book(image: "mutti.jpg", title: bookTitle.text!, text: bookText.text, author: bookAuthor.text!, category: "Prova")
+        
         
         
         //        imageDownload(bookId: 25 /* for test only, will be "bookId" from the API */)
@@ -126,12 +126,16 @@ class ViewControllerReadGeneratedStory: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicator.startAnimating()
+        bookText.text = book?.text
+        bookText.isHidden = false
+        bookAuthor.text = book?.author
+        bookTitle.text = book?.title
         
-        activityIndicator.center = self.view.center
-        activityIndicator.color = UIColor(red:0.59, green:0.41, blue:0.82, alpha:1.0)
+//        activityIndicator.startAnimating()
+//        activityIndicator.center = self.view.center
+//        activityIndicator.color = UIColor(red:0.59, green:0.41, blue:0.82, alpha:1.0)
         
-        self.view.addSubview(activityIndicator)
+//        self.view.addSubview(activityIndicator)
         
         favButton.setImage(#imageLiteral(resourceName: "star_notselected"), for: .normal)
         
