@@ -1,3 +1,6 @@
+
+
+
 //
 //  ViewControllerReadGeneratedStory.swift
 //  08_12
@@ -28,22 +31,25 @@ func createArray(books: [Book]) -> [[String]] {
 
 
 class ViewControllerReadGeneratedStory: UIViewController {
-
-
-//  change the color of the star button when is selected and the andd the book into the favouritesBooks array
+    
+    
+    //  change the color of the star button when is selected and the andd the book into the favouritesBooks array
     @IBOutlet weak var favButton: UIButton!
     
     
     @IBAction func changeBackground(_ sender: Any) {
         
-//        imageDownload(bookId: 25 /* for test only, will be "bookId" from the API */)
+        book = Book(image: "mutti.jpg", title: bookTitle.text!, text: bookText.text, author: bookAuthor.text!, category: "Prova")
+        
+        
+        //        imageDownload(bookId: 25 /* for test only, will be "bookId" from the API */)
         
         if isSelected {
             
             isSelected = false
             
             favButton.setImage(#imageLiteral(resourceName: "star_notselected"), for: .normal)
-    
+            
             var indexToRemove: Int?
             
             for x in 1...booksArray.shared.books.count {
@@ -86,70 +92,59 @@ class ViewControllerReadGeneratedStory: UIViewController {
     @IBOutlet weak var bookAuthor: UILabel!
     @IBOutlet weak var bookText: UITextView!
     
-//    umc
+    //    umc
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
     
-//    end
+    //    end
     
-    
-    
+//    func textHeight() {
+//        let fixedWidth = bookText.frame.size.width
+//
+//        bookText.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+//
+//        var newFrame = bookText.frame
+//        let newSize = bookText.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+//
+//        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+//
+//        bookText.frame = newFrame
+//
+//        let heightOfItems = newSize.height + bookTitle.frame.height + bookAuthor.frame.height
+//
+//        if heightOfItems <= scrollView.frame.height {
+//            scrollViewHeight.constant = scrollView.frame.height
+//        } else {
+//            scrollViewHeight.constant = heightOfItems
+//            // fine ScrollView height
+//        }
+//    }
+//
     var book: Book?
     var isSelected: Bool = false
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        bookTitle.text = book?.title
-        bookText.text = book?.text
-        bookAuthor.text = book?.author
         
-        // bookText height
-        let fixedWidth = bookText.frame.size.width
-        bookText.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        activityIndicator.startAnimating()
         
-        var newFrame = bookText.frame
-        let newSize = bookText.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        activityIndicator.center = self.view.center
+        activityIndicator.color = UIColor(red:0.59, green:0.41, blue:0.82, alpha:1.0)
         
-        
-        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-        
-        bookText.frame = newFrame
-        
-        var heightOfItems = newSize.height + bookTitle.frame.height + bookAuthor.frame.height
-        
-        if heightOfItems <= scrollView.frame.height {
-            scrollViewHeight.constant = scrollView.frame.height
-        } else {
-            scrollViewHeight.constant = heightOfItems
-            // fine ScrollView height
-        }
-        
-        // Do any additional setup after loading the view.
+        self.view.addSubview(activityIndicator)
         
         favButton.setImage(#imageLiteral(resourceName: "star_notselected"), for: .normal)
         
         tabBarController?.tabBar.isHidden = true
-     
-
+        
     }
-
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
+    
 }
+

@@ -24,8 +24,7 @@ class Book {
         self.author = author
         self.category = category
     }
-    
-   
+
     
     class func createBooksArray(genere: String) -> [Book]  {
         

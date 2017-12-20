@@ -1,3 +1,4 @@
+
 //
 //  ViewController.swift
 //  08_12
@@ -7,13 +8,12 @@
 //
 
 import UIKit
-var myAuthor = ""
-var myTitle = ""
-var myText = ""
 
+
+var activityIndicator = UIActivityIndicatorView()
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var generateButton: UIButton!
     
     var books: [Book] = []
@@ -35,54 +35,108 @@ class ViewController: UIViewController {
     @IBOutlet var swipeRight: UISwipeGestureRecognizer!
     @IBOutlet var swipeLeft: UISwipeGestureRecognizer!
     
-    func isKeyPresentInUserDefaults(key: String) -> Bool {
-        return storyGenerated.object(forKey: key) != nil
-    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+        
         
         let genre = savedGenre.string(forKey: "myGenre")
-        var books = Book.createBooksArray(genere: genre!)
-        let randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
-
-        let generatedBook = books[randomIndexx]
         
-       //
-        
-        
+        //        var books = Book.createBooksArray(genere: genre!)
+        //        let randomIndexx = Int(arc4random_uniform(UInt32(books.count)))
+        //
+        //        let generatedBook = books[randomIndexx]
         //let generatedBook = downloadJSON(category: genre)
-        
         //let generatedBookArray = downloadJSON(category: "Love%20stories")
+        //        downloadJSON(category: "Love%20stories")
+        //        sleep(7)
+        //        let generatedBook = Book(image: "mikey.jpg", title: myTitle , text: myText, author: myAuthor, category: "love")
+        //        var bookText = generatedBook.text
+        //
+        //        bookText = textForMinutes(testo: bookText , minuti: myNumbMin)
+        //
+        //
+        //        generatedBook.text = bookText
+        //
         
-//        downloadJSON(category: "Love%20stories")
-        
-//        sleep(7)
-        
-        
-//        let generatedBook = Book(image: "mikey.jpg", title: myTitle , text: myText, author: myAuthor, category: "love")
-        
-        
-        var bookText = generatedBook.text
-        
-        bookText = textForMinutes(testo: bookText , minuti: myNumbMin)
-        
-        
-        generatedBook.text = bookText
-        
-        print(bookText)
+        let category = "Love%20stories"
         
         
         if segue.identifier == "sendRandom" {
-                let destinationVC = segue.destination as! ViewControllerReadGeneratedStory
-                destinationVC.book = generatedBook
+            
+            let destination = segue.destination as! ViewControllerReadGeneratedStory
+            
+            func downloadJSON(category: String) {
+                print("start")
+                //        1. Set the url to call API from gutenbergapi.org. Then search books with: subject(the category) equal to "something" (be carefull, add %20 instaed of spaces e.g. use "Love%20stories", not "Love stories"), English language only and include title and author in the json data.
+                let jsonUrlString = "https://gutenbergapi.org/search/subject%20eq%20\(category)%20and%20language%20eq%20en?include=title,author"
+                let url = URL(string: jsonUrlString)
+                URLSession.shared.dataTask(with: url!) { (data, response, error) in
+                    guard let data = data else { return }
+                    if error == nil {
+                        do {
+                            let booksIndex = try JSONDecoder().decode(BooksIndex.self, from: data)
+                            let booksCount = booksIndex.texts.count
+                            let randomBook = Int(arc4random_uniform(UInt32(booksCount)))
+                            let choosenBook = booksIndex.texts[randomBook]
+                            let bookTitle = choosenBook.title.joined(separator: " ")
+                            let bookId = choosenBook.id
+                            let bookAuthor = choosenBook.author.joined(separator: " ")
+                            let jsonText = "https://gutenbergapi.org/texts/\(bookId)/body"
+                            let urlText = URL(string: jsonText)
+                            URLSession.shared.dataTask(with: urlText!) { (data, response, error) in
+                                guard let data = data else { return }
+                                if error == nil {
+                                    do {
+                                        let bookText = try JSONDecoder().decode(BodyText.self, from: data)
+                                        let fullBookText = bookText.body
+                                        if fullBookText.contains("CHAPTER I")
+                                        {print("ok")
+                                            let result = fullBookText.range(of: "CHAPTER I", options: NSString.CompareOptions.literal, range: fullBookText.startIndex..<fullBookText.endIndex, locale: nil)
+                                            if let range = result {
+                                                let start = range.lowerBound
+                                                
+                                                DispatchQueue.main.async { // Correct
+                                                    
+                                                    destination.bookText.text = textForMinutes(testo: String(fullBookText[start..<fullBookText.endIndex]), minuti: self.myNumbMin)
+                                                    //                                                    destination.bookText.text = String(fullBookText[start..<fullBookText.endIndex])
+                                                    destination.bookText.isHidden = false
+                                                    destination.bookAuthor.text = bookAuthor
+                                                    destination.bookAuthor.isHidden = false
+                                                    destination.bookTitle.text = bookTitle
+                                                    destination.bookTitle.isHidden = false
+                                                    
+                                                    
+                                                    activityIndicator.stopAnimating()
+                                                }
+                                            }
+                                        } else {
+                                            downloadJSON(category: category)
+                                        }
+                                    } catch {
+                                        print("BookText – JSON Error")
+                                    }
+                                } else { print("BookText – Response: \(String(describing: response)) – Error: \(String(describing: error)).") }
+                                }.resume()
+                        } catch {
+                            print("JSON Error")
+                        }
+                    } else { print("Response: \(String(describing: response)) – Error: \(String(describing: error)).") }
+                    }.resume()
             }
+            
+            downloadJSON(category: category)
+        }
     }
     
-
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         generateButton.layer.cornerRadius = 30
         generateButton.backgroundColor = .white
         generateButton.layer.shadowColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0).cgColor
@@ -90,7 +144,7 @@ class ViewController: UIViewController {
         generateButton.layer.shadowOpacity = 10
         generateButton.layer.shadowRadius = 2.0
         generateButton.clipsToBounds = false
-
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController!.navigationBar.isTranslucent = true
@@ -101,7 +155,7 @@ class ViewController: UIViewController {
         swipeLeft.direction = .left
         swipeRight.direction = .right
         
-//        for the numbers in the time section
+        //        for the numbers in the time section
         
         self.setupButtonSizes()
         self.setupButtonFonts()
@@ -109,11 +163,7 @@ class ViewController: UIViewController {
         favouritesBooks.removeObject(forKey: "myArray")
         
         // Do any additional setup after loading the view, typically from a nib.
-       
-        
         // check if user has already launched the initial screen
-        
-        
         
         
         let bol = firstLaunch.bool(forKey: "isFirstLaunch")
@@ -134,7 +184,7 @@ class ViewController: UIViewController {
             present(initialView, animated: true)
             
         }
- 
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -147,7 +197,7 @@ class ViewController: UIViewController {
     
     @IBAction func swipeTheNumber(_ sender: UISwipeGestureRecognizer) {
         switch sender.direction {
-        
+            
         case  UISwipeGestureRecognizerDirection.left:
             
             if bigNumberIndex != numbersSwipeCollection.count - 1 {
@@ -212,10 +262,10 @@ class ViewController: UIViewController {
             print ("other")
             break
         }
-    
-//      print("ok")
-//        print((myNumbMin))
-//      print("ok")
+        
+        //      print("ok")
+        //        print((myNumbMin))
+        //      print("ok")
         
     }
     
@@ -254,14 +304,10 @@ func textForMinutes(testo: String, minuti: String) -> String {
     var newTextArray = separatTextInWords[0...separatTextInWords.count - 1 ]
     
     if totalWords <= separatTextInWords.count {
-       
+        
         newTextArray = separatTextInWords[0...totalWords]
     }
     testoPerMinuti = newTextArray.joined(separator: " ")
-    
-    print("pippo")
-    print(minuti)
-    print(newTextArray.count)
     
     return testoPerMinuti
 }
@@ -284,80 +330,6 @@ extension ViewController: UINavigationControllerDelegate {
 }
 
 
-///////////////////////////////////////////////// UMBERTO CODE ////////////////
-
-func downloadJSON(category: String) {
-    
-//    var finalArray: [String] = []
-    
-    //        1. Set the url to call API from gutenbergapi.org. Then search books with: subject(the category) equal to "something" (be carefull, add %20 instaed of spaces e.g. use "Love%20stories", not "Love stories"), English language only and include title and author in the json data.
-    var bookId = 0
-    let jsonUrlString = "https://gutenbergapi.org/search/subject%20eq%20\(category)%20and%20language%20eq%20en?include=title,author"
-    let url = URL(string: jsonUrlString)
-    
-    //        2. From the url, take the data (JSON) as "data", the response (200, 400, 404, 500...) as "response" and error as "error".
-    URLSession.shared.dataTask(with: url!) { (data, response, error) in
-        guard let data = data else { return }
-        if error == nil {
-            do {
-                //                    3. Decode the JSON data with the struct made, in this case, in the "BookIndex.swift" file. Then count how many books are in the index and choose one randomly.
-                let booksIndex = try JSONDecoder().decode(BooksIndex.self, from: data)
-                let booksCount = booksIndex.texts.count
-                let randomBook = Int(arc4random_uniform(UInt32(booksCount)))
-                let choosenBook = booksIndex.texts[randomBook]
-                //                    4. Assign constants to extrapolated data, like the title, the author and the id of the randomly choosen book. Author and Title will be displayed in the book view, the id is used to take the text of the book.
-                let bookTitle = choosenBook.title.joined(separator: " ")
-                bookId = choosenBook.id
-                let bookAuthor = choosenBook.author.joined(separator: " ")
-
-//                self.bookId = bookId
-//                self.bookTitle = bookTitle
-//                self.bookAuthor = bookAuthor
-                
-                
-                myTitle = bookTitle
-                myAuthor = bookAuthor
-                
-//                print(bookAuthor)
-                
-                //finalArray.append(bookTitle)
-                //finalArray.append(bookAuthor)
-                //print("pippo")
-                //print(finalArray)
-                
-                
-                
-                let jsonText = "https://gutenbergapi.org/texts/\(bookId)/body"
-                let urlText = URL(string: jsonText)
-                
-                URLSession.shared.dataTask(with: urlText!) { (data, response, error) in
-                    guard let data = data else { return }
-                    if error == nil {
-                        do {
-                            let bookText = try JSONDecoder().decode(BodyText.self, from: data)
-//
-//                            finalArray.append(bookText.body)
-//                            print("pippo2")
-//                            print(finalArray)
-                            myText = bookText.body
-                            
-                        } catch {
-                            print("BookText – JSON Error")
-                        }
-                    } else { print("BookText – Response: \(response) – Error: \(error).") }
-                    }.resume()
-                
-            } catch {
-                print("JSON Error")
-            }
-        } else { print("Response: \(response) – Error: \(error).")
-            
-            //    return finalArray
-        }
-        }.resume()
-    
-
-}
 
 
 
