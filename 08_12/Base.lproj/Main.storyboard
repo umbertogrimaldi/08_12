@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cMe-cW-ekm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cMe-cW-ekm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -149,30 +149,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-JM-Old">
-                                <rect key="frame" x="16" y="93" width="299" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWc-JM-Old">
+                                <rect key="frame" x="16" y="65" width="343" height="47"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfx-i5-icw">
-                                <rect key="frame" x="16" y="270" width="343" height="348"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="iahfuubaiucbiudbiuybvaiucbaiubfiaube" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfx-i5-icw">
+                                <rect key="frame" x="16" y="146" width="343" height="521"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.21176470588235294" green="0.21176470588235294" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3f8-KN-cWR">
-                                <rect key="frame" x="16" y="198" width="254" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3f8-KN-cWR">
+                                <rect key="frame" x="16" y="114" width="343" height="20"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" red="0.7129614637305699" green="0.7129614637305699" blue="0.7129614637305699" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dW0-re-85G" firstAttribute="trailing" secondItem="nfx-i5-icw" secondAttribute="trailing" constant="16" id="5nt-nm-mYl"/>
+                            <constraint firstItem="3f8-KN-cWR" firstAttribute="leading" secondItem="dW0-re-85G" secondAttribute="leading" constant="16" id="6Cp-Gu-nzF"/>
+                            <constraint firstItem="cWc-JM-Old" firstAttribute="top" secondItem="dW0-re-85G" secondAttribute="top" constant="1" id="JuC-L6-0C4"/>
+                            <constraint firstItem="3f8-KN-cWR" firstAttribute="top" secondItem="cWc-JM-Old" secondAttribute="bottom" constant="2.5" id="Opi-4Y-rTc"/>
+                            <constraint firstItem="dW0-re-85G" firstAttribute="trailing" secondItem="cWc-JM-Old" secondAttribute="trailing" constant="16" id="Rxi-Ss-SvI"/>
+                            <constraint firstItem="dW0-re-85G" firstAttribute="trailing" secondItem="3f8-KN-cWR" secondAttribute="trailing" constant="16" id="U56-VO-je8"/>
+                            <constraint firstItem="nfx-i5-icw" firstAttribute="leading" secondItem="dW0-re-85G" secondAttribute="leading" constant="16" id="UOi-iS-hdw"/>
+                            <constraint firstItem="cWc-JM-Old" firstAttribute="leading" secondItem="dW0-re-85G" secondAttribute="leading" constant="16" id="iSB-1d-03e"/>
+                            <constraint firstAttribute="bottom" secondItem="nfx-i5-icw" secondAttribute="bottom" id="n2Q-0Z-4Jw"/>
+                            <constraint firstItem="nfx-i5-icw" firstAttribute="top" secondItem="3f8-KN-cWR" secondAttribute="bottom" constant="12.5" id="tGA-Xb-tq7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dW0-re-85G"/>
                     </view>
                     <navigationItem key="navigationItem" id="scC-eD-yW8">
