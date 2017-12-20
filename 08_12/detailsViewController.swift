@@ -25,7 +25,7 @@ class detailsViewController: UIViewController {
         super.viewDidLoad()
         setUI()
         tabBarController?.tabBar.isHidden = true
-        
+        navigationController?.navigationBar.backgroundColor = .white
         
         detailImage.backgroundColor = UIColor.purple
         
